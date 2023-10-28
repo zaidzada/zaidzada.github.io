@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--  
+
+jinja -d data.yaml index.html.jinja > index.html
+-->
+
+<head>
+  <title>{{ basics.name }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ basics.image }}">
+  <style type="text/css">
+    /* Color scheme based on https://github.com/sonph/onehalf */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --accent: #e77500;
+
+        /* onehalf light colors */
+        --black: #383a42;
+        --red: #e45649;
+        --green: #50a14f;
+        --yellow: #c18401;
+        --blue: #0184bc;
+        --magenta: #a626a4;
+        --cyan: #0997b3;
+        --white: #fafafa;
+        --foreground: #383a42;
+        --background: #fafafa;
+        /* from onehalf-sublime */
+        --gray: #a0a1a7;
+        --gray2: #d4d4d4;
+        --selection: #bfceff;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --accent: #f58025;
+
+        /* onehalf dark colors */
+        --black: #282c34;
+        --red: #e06c75;
+        --green: #98c379;
+        --yellow: #e5c07b;
+        --blue: #61afef;
+        --magenta: #c678dd;
+        --cyan: #56b6c2;
+        --white: #dcdfe4;
+        --foreground: #dcdfe4;
+        --background: #282c34;
+
+        --gray: #5c6370;
+        --gray2: #919baa;
+        --selection: #474e5d;
+      }
+
+      nav {
+        border-bottom: 1px solid var(--accent);
+      }
+
+    }
+
+    body {
+      font-family: sans-serif;
+      color: var(--foreground);
+      background-color: var(--background);
+      margin: 0 auto;
+      max-width: 36em;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+
+    main h1 {
+      font-size: 1.5em;
+      border-left: 5px solid var(--accent);
+      padding-left: 10px;
+    }
+
+    main h2 {
+      font-size: 1em;
+      font-style: italic;
+    }
+
+    main a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    main a:hover {
+      text-decoration: underline;
+    }
+
+    main a span:hover {
+      text-decoration: underline;
+    }
+
+    main time {
+      font-weight: bold;
+    }
+
+    body>footer {
+      padding: 1em 0;
+      color: #ababab;
+      text-align: center;
+    }
+
+    body>footer p {
+      margin: 0;
+      padding: 0;
+      font-size: 0.8em;
+    }
+
+    /*
+      Navigation
+    */
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      max-height: 46px;
+      overflow: hidden;
+      list-style-type: none;
+      color: var(--white);
+      background-color: var(--black);
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+
+    nav ul li a {
+      display: block;
+      color: var(--white);
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    nav ul li a:hover:not(.active) {
+      background-color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* nav ul li a.active {
+      background-color: #4CAF50;
+    } */
+
+
+    /*
+      Bio
+    */
+
+    #bio ul {
+      float: left;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      line-height: 1.5em;
+    }
+
+    #bio ul li {
+      text-align: center;
+    }
+
+    /* #bio ul li:first-child {
+      text-align: left;
+    } */
+
+    #bio p {
+      float: left;
+      text-align: top;
+      margin-top: 0px;
+      margin-left: 15px;
+      width: calc(100% - 176px - 15px);
+    }
+
+    #bio:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    #bio footer a {
+      color: var(--foreground);
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      stroke-width: 0;
+      stroke: currentColor;
+      fill: currentColor;
+      vertical-align: middle;
+    }
+
+    #bio footer a:hover {
+      color: var(--accent);
+    }
+
+    #bio footer {
+      text-align: center;
+      font-size: 1.5em;
+    }
+
+    /* ------
+       PAPERS
+       ------*/
+
+    article {
+      padding-bottom: 1.5em;
+    }
+
+    article p {
+      margin: 4px auto;
+      font-size: 0.9em;
+    }
+
+    .journal_badge,
+    .conference_badge,
+    .preprint_badge,
+    .border_badge,
+    .code_badge {
+      display: inline-block;
+      padding: .25em .4em;
+      font-size: 75%;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: .25em;
+      color: var(--background);
+      background-color: var(--gray);
+    }
+
+    .journal_badge {
+      background-color: var(--foreground);
+    }
+
+    .conference_badge {
+      background-color: var(--red);
+    }
+
+    .preprint_badge {
+      background-color: var(--yellow);
+    }
+
+    .border_badge {
+      color: var(--foreground);
+      background-color: var(--background);
+      border: 1px solid var(--foreground);
+    }
+
+    #talks ul li {
+      margin: 10px 0;
+    }
+
+    /* ------
+       SOFTWARE
+       ------*/
+
+    #software ul {
+      padding-left: 1.5em;
+    }
+
+    #software ul>li {
+      display: flex;
+      list-style-type: none;
+      padding-bottom: 1em;
+    }
+
+    #software ul>li>svg {
+      flex-basis: 40%;
+      max-width: 80px;
+    }
+
+    #software p {
+      margin: 0;
+      padding-left: 1rem;
+      display: inline;
+    }
+
+    /* ------
+       Responsive
+       ------*/
+    @media screen and (max-width: 600px) {
+
+      main {
+        margin: 0 1em;
+      }
+
+      nav>ul>li {
+        flex: 1;
+      }
+
+      #bio ul {
+        width: 100%;
+      }
+
+      #bio h1 {
+        text-align: center;
+        text-decoration: underline;
+        text-decoration-color: var(--accent);
+        text-underline-offset: 5px;
+        border: none;
+      }
+
+      #bio p {
+        width: 100%;
+        margin: 1em 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#bio">Home</a></li>
+        <li><a href="#papers">Papers</a></li>
+        <li><a href="#talks">Talks</a></li>
+        <li><a href="#software">Software</a></li>
+        <li><a href="#media">Media</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
+    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <!-- icons generated by IcoMoon.io -->
+      <symbol id="icon-email" viewBox="0 0 32 32">
+        <path
+          d="M31.781 20.375l-8-10c-0.19-0.237-0.477-0.375-0.781-0.375h-14c-0.304 0-0.591 0.138-0.781 0.375l-8 10c-0.142 0.177-0.219 0.398-0.219 0.625v9c0 1.105 0.895 2 2 2h28c1.105 0 2-0.895 2-2v-9c0-0.227-0.077-0.447-0.219-0.625zM30 22h-7l-4 4h-6l-4-4h-7v-0.649l7.481-9.351h13.039l7.481 9.351v0.649z">
+        </path>
+        <path d="M23 16h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+        <path d="M25 20h-18c-0.552 0-1-0.448-1-1s0.448-1 1-1h18c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+      </symbol>
+      <symbol id="icon-Twitter" viewBox="0 0 32 32">
+        <title>twitter</title>
+        <path
+          d="M32 7.075c-1.175 0.525-2.444 0.875-3.769 1.031 1.356-0.813 2.394-2.1 2.887-3.631-1.269 0.75-2.675 1.3-4.169 1.594-1.2-1.275-2.906-2.069-4.794-2.069-3.625 0-6.563 2.938-6.563 6.563 0 0.512 0.056 1.012 0.169 1.494-5.456-0.275-10.294-2.888-13.531-6.862-0.563 0.969-0.887 2.1-0.887 3.3 0 2.275 1.156 4.287 2.919 5.463-1.075-0.031-2.087-0.331-2.975-0.819 0 0.025 0 0.056 0 0.081 0 3.181 2.263 5.838 5.269 6.437-0.55 0.15-1.131 0.231-1.731 0.231-0.425 0-0.831-0.044-1.237-0.119 0.838 2.606 3.263 4.506 6.131 4.563-2.25 1.762-5.075 2.813-8.156 2.813-0.531 0-1.050-0.031-1.569-0.094 2.913 1.869 6.362 2.95 10.069 2.95 12.075 0 18.681-10.006 18.681-18.681 0-0.287-0.006-0.569-0.019-0.85 1.281-0.919 2.394-2.075 3.275-3.394z">
+        </path>
+      </symbol>
+      <symbol id="icon-GitHub" viewBox="0 0 32 32">
+        <title>github</title>
+        <path
+          d="M16 0.395c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z">
+        </path>
+      </symbol>
+      <symbol id="icon-LinkedIn" viewBox="0 0 32 32">
+        <title>linkedin</title>
+        <path
+          d="M12 12h5.535v2.837h0.079c0.77-1.381 2.655-2.837 5.464-2.837 5.842 0 6.922 3.637 6.922 8.367v9.633h-5.769v-8.54c0-2.037-0.042-4.657-3.001-4.657-3.005 0-3.463 2.218-3.463 4.509v8.688h-5.767v-18z">
+        </path>
+        <path d="M2 12h6v18h-6v-18z"></path>
+        <path d="M8 7c0 1.657-1.343 3-3 3s-3-1.343-3-3c0-1.657 1.343-3 3-3s3 1.343 3 3z"></path>
+      </symbol>
+      <symbol id="icon-GScholar" viewBox="0 0 32 32">
+        <title>google</title>
+        <path
+          d="M16.319 13.713v5.487h9.075c-0.369 2.356-2.744 6.9-9.075 6.9-5.463 0-9.919-4.525-9.919-10.1s4.456-10.1 9.919-10.1c3.106 0 5.188 1.325 6.375 2.469l4.344-4.181c-2.788-2.612-6.4-4.188-10.719-4.188-8.844 0-16 7.156-16 16s7.156 16 16 16c9.231 0 15.363-6.494 15.363-15.631 0-1.050-0.113-1.85-0.25-2.65l-15.113-0.006z">
+        </path>
+      </symbol>
+      <symbol id="icon-OrcID" viewBox="0 0 32 32">
+        <title>orcid</title>
+        <path
+          d="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM9.825 5.837c0.7 0 1.263 0.575 1.263 1.263s-0.563 1.263-1.263 1.263c-0.696-0.002-1.26-0.566-1.263-1.262v-0c0-0.7 0.563-1.263 1.263-1.263zM8.863 9.888h1.925v13.388h-1.925zM13.612 9.888h5.2c4.949 0 7.125 3.537 7.125 6.7 0 3.437-2.688 6.7-7.1 6.7h-5.225zM15.537 11.625v9.925h3.063c4.363 0 5.363-3.312 5.363-4.963 0-2.688-1.712-4.963-5.463-4.963z">
+        </path>
+      </symbol>
+      <!-- personal porject icons -->
+      <symbol id="icon-brewlet" viewBox="0 0 32 32">
+        <g transform="matrix(.22689 0 0 .22689 -2.5115 -3.5497)">
+          <g transform="translate(3.8444 .2945)">
+            <path
+              d="m37.32 53.934v89.421h67.447v-89.2c-1.0961 0.50323-2.1271 1.0633-2.8668 1.661-1.2952 1.0466-2.0782 2.6219-2.7998 4.1113-0.70148 1.4479-1.1421 3.0214-1.4431 4.598-0.42108 2.2053 0.32386 4.9668-0.49129 6.7142-0.85401 1.8307-3.2458 3.1708-5.3651 3.5214-1.705 0.28207-3.7245-0.15928-5.0189-1.2884-2.1042-1.8354-1.776-5.2818-3.0984-7.7248-1.4557-2.6893-3.6074-4.6555-6.1871-5.8892-11.275-5.3924-26.637-1.7303-37.257-5.0105-0.15496-0.04786-1.6301-0.51131-2.9198-0.91438z"
+              fill="#fbb040" stroke-width="0" />
+            <rect x="45.177" y="61.795" width="5.6883" height="69.383" ry="2.802" fill="#ffdb96" fill-opacity=".65992"
+              stroke-width="0" />
+            <path
+              d="m32.179 52.325c-6.3233-0.40782-10.059-4.0751-9.7647-11.381 0.72726-5.1486 4.2844-7.7085 10.178-8.1305 4.7557-15.958 23.667-14.178 23.658 5.1493 7.359-10.577 15.011-12.649 23.108 0 5.5705-13.841 14.25-17.828 26.134-5.1493l5.5018-1.3551c15.854 4.8458 10.717 17.05 4e-3 20.631m-78.819 0.23514c-1.6157-0.50611 7.6339 2.3914 8.0617 2.5235 10.619 3.2803 25.98-0.38149 37.256 5.011 2.5797 1.2337 4.7311 3.1995 6.1869 5.8888 1.3225 2.4431 0.99472 5.8895 3.0989 7.7249 1.2944 1.1291 3.314 1.5707 5.0191 1.2887 2.1193-0.35061 4.5112-1.6908 5.3652-3.5214 0.81515-1.7474 0.07082-4.5091 0.49188-6.7144 0.30104-1.5767 0.7414-3.1504 1.4429-4.5983 0.72158-1.4894 1.5043-3.065 2.7995-4.1116 2.5391-2.0519 8.4248-3.7433 9.0972-3.7262"
+              fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.9479" />
+            <path
+              d="m37.32 53.934v89.421c22.05 6.3854 44.517 6.6173 67.447 0v-21.944h26.836v-55.915h-27.058v56.24-66.643"
+              fill="none" stroke="#000" stroke-linejoin="round" stroke-width="9.9256" />
+          </g>
+        </g>
+      </symbol>
+      <symbol id="icon-brewlet-mini" viewbox="0 0 32 32">
+        <g id="Regular-S" transform="matrix(.31553 0 0 .31553 -3.0815 27.093)">
+          <path
+            d="m58.838-16.211h3.7598c18.945 0 32.226-12.94 32.226-33.301v-7.959c0-9.4238-13.672-15.674-34.131-15.674s-34.131 6.25-34.131 15.674v7.959c0 19.531 13.281 33.301 32.275 33.301zm1.6113 19.043c29.736 0 50.733-8.4473 50.733-20.898 0-4.6387-2.979-8.7891-8.252-12.061-2.539 1.1231-5.4691 1.7579-8.7894 1.8555-6.2011 10.498-17.432 16.846-31.543 16.846h-3.7598c-15.967 0-28.516-8.6914-34.082-22.07-9.4727 3.6621-14.99 8.9844-14.99 15.43 0 12.451 21.045 20.898 50.684 20.898zm0.2442-51.367c-15.723 0-27.344-3.9062-27.344-8.9355s11.621-8.8867 27.344-8.8867c15.771 0 27.392 3.8574 27.392 8.8867s-11.621 8.9355-27.392 8.9355zm29.834 15.479h2.9786c8.9351 0 14.258-4.5899 14.258-12.305 0-7.7149-5.371-12.354-14.258-12.354h-2.8321v6.7871h2.8321c4.7851 0 7.4711 2.0019 7.4711 5.5664 0 3.4668-2.686 5.5175-7.4711 5.5175h-2.9786z"
+            fill="#eda960" />
+        </g>
+      </symbol>
+      <symbol id="icon-schedule-shortcut" viewbox="0 0 32 32">
+        <g id="Regular-S" transform="matrix(.3451 0 0 .3451 -3.3699 26.927)">
+          <path
+            d="m22.217 0.39062h38.574c-1.2695-2.1973-2.1972-4.5898-2.7832-7.0801h-36.475c-3.0273 0-4.7363-1.6113-4.7363-4.7852v-36.719c0-3.1738 1.709-4.7851 4.7363-4.7851h52.978c3.0274 0 4.7852 1.6113 4.7852 4.7851v10.791c1.1719-0.1465 2.3437-0.2442 3.5156-0.2442s2.3437 0.0977 3.5156 0.2442v-21.094c0-8.2031-4.1015-12.305-12.451-12.305h-51.66c-8.3008 0-12.451 4.1016-12.451 12.305v46.582c0 8.2032 4.1504 12.305 12.451 12.305zm18.408-39.551h2.2461c1.4648 0 1.9531-0.4882 1.9531-1.9043v-2.246c0-1.4161-0.4883-1.9043-1.9531-1.9043h-2.2461c-1.416 0-1.9043 0.4882-1.9043 1.9043v2.246c0 1.4161 0.4883 1.9043 1.9043 1.9043zm12.598 0h2.2461c1.416 0 1.9042-0.4882 1.9042-1.9043v-2.246c0-1.4161-0.4882-1.9043-1.9042-1.9043h-2.2461c-1.4649 0-1.9532 0.4882-1.9532 1.9043v2.246c0 1.4161 0.4883 1.9043 1.9532 1.9043zm12.549 0h2.2461c1.416 0 1.9531-0.4882 1.9531-1.9043v-2.246c0-1.4161-0.5371-1.9043-1.9531-1.9043h-2.2461c-1.4649 0-1.9531 0.4882-1.9531 1.9043v2.246c0 1.4161 0.4882 1.9043 1.9531 1.9043zm-37.695 12.354h2.2461c1.4648 0 1.9531-0.4883 1.9531-1.9043v-2.2461c0-1.416-0.4883-1.9043-1.9531-1.9043h-2.2461c-1.416 0-1.9532 0.4883-1.9532 1.9043v2.2461c0 1.416 0.5372 1.9043 1.9532 1.9043zm12.549 0h2.2461c1.4648 0 1.9531-0.4883 1.9531-1.9043v-2.2461c0-1.416-0.4883-1.9043-1.9531-1.9043h-2.2461c-1.416 0-1.9043 0.4883-1.9043 1.9043v2.2461c0 1.416 0.4883 1.9043 1.9043 1.9043zm12.598 0h2.2461c1.416 0 1.9042-0.4883 1.9042-1.9043v-2.2461c0-1.416-0.4882-1.9043-1.9042-1.9043h-2.2461c-1.4649 0-1.9532 0.4883-1.9532 1.9043v2.2461c0 1.416 0.4883 1.9043 1.9532 1.9043zm-25.146 12.354h2.2461c1.4648 0 1.9531-0.4883 1.9531-1.9043v-2.2461c0-1.416-0.4883-1.9043-1.9531-1.9043h-2.2461c-1.416 0-1.9532 0.4883-1.9532 1.9043v2.2461c0 1.416 0.5372 1.9043 1.9532 1.9043zm12.549 0h2.2461c1.4648 0 1.9531-0.4883 1.9531-1.9043v-2.2461c0-1.416-0.4883-1.9043-1.9531-1.9043h-2.2461c-1.416 0-1.9043 0.4883-1.9043 1.9043v2.2461c0 1.416 0.4883 1.9043 1.9043 1.9043zm12.598 0h2.2461c1.416 0 1.9042-0.4883 1.9042-1.9043v-2.2461c0-1.416-0.4882-1.9043-1.9042-1.9043h-2.2461c-1.4649 0-1.9532 0.4883-1.9532 1.9043v2.2461c0 1.416 0.4883 1.9043 1.9532 1.9043zm29.59 21.924c10.644 0 19.678-8.9355 19.678-19.678 0-10.791-8.8865-19.678-19.678-19.678s-19.678 8.8868-19.678 19.678c0 10.84 8.8867 19.678 19.678 19.678zm0-7.4219c-1.5137 0-2.5391-1.0254-2.5391-2.5391v-7.1777h-7.1777c-1.5137 0-2.5391-1.0254-2.5391-2.539 0-1.5137 1.0254-2.5391 2.5391-2.5391h7.1777v-7.1777c0-1.5137 1.0254-2.5391 2.5391-2.5391s2.5391 1.0254 2.5391 2.5391v7.1777h7.1777c1.5137 0 2.4902 1.0254 2.4902 2.5391 0 1.5136-0.9765 2.539-2.4902 2.539h-7.1777v7.1777c0 1.5137-1.0254 2.5391-2.5391 2.5391z"
+            fill="#0184bc" />
+        </g>
+      </symbol>
+      <symbol id="icon-caffeinate" viewBox="0 0 32 32">
+        <path
+          d="m25.438 24.437h-2.8647v-1.875h2.8647c2.5846 0 4.6875-2.1029 4.6875-4.6875v-2.875h-4.6875v-1.875h6.5625v4.75c0 3.6182-2.9443 6.5625-6.5625 6.5625z"
+          fill="#b20000" stroke-width=".0625" />
+        <path d="m1.9375 11.249v4.6875c0 6.7125 5.4749 12.25 12.188 12.25 6.7126 0 12.25-5.5376 12.25-12.25v-4.6875z"
+          fill="#ff3636" stroke-width=".0625" />
+        <g transform="matrix(.0625 0 0 .0625 0 -.0009375)" fill="#ffbd86">
+          <path
+            d="m143.43 144.96c-14.238-9.492-22.734-25.371-22.734-42.48s8.496-32.988 22.734-42.48c5.962-3.97 9.375-10.356 9.375-17.52s-3.413-13.55-9.375-17.52l16.64-24.961c14.238 9.492 22.734 25.371 22.734 42.48s-8.496 32.988-22.734 42.48c-5.962 3.97-9.375 10.356-9.375 17.52s3.413 13.55 9.375 17.52z" />
+          <path
+            d="m257.8 42.599c0 17.1-8.399 32.999-22.8 42.299-5.4 3.301-8.399 9.001-9 15-0.3 0.901-0.3 1.802-0.3 2.701 0 0.901 0 1.8 0.3 2.701 0.601 5.999 3.9 11.4 9 14.7l-9 13.5-7.5 11.398c-14.399-9.3-22.8-25.199-22.8-42.299s8.401-32.999 22.8-42.599c3.6-2.401 6-5.4 7.5-9 1.199-2.701 1.8-5.402 1.8-8.401s-0.601-6-1.8-8.699c-1.5-3.6-3.9-6.601-7.5-9.001l7.5-11.399 9-13.5c14.401 9.6 22.8 25.499 22.8 42.599z" />
+        </g>
+        <path
+          d="m18.339 9.0591c-0.88988-0.59325-1.4209-1.5857-1.4209-2.655s0.531-2.0618 1.4209-2.655c0.37262-0.24812 0.58594-0.64725 0.58594-1.095s-0.21331-0.84688-0.58594-1.095l1.04-1.5601c0.88988 0.59325 1.4209 1.5857 1.4209 2.655s-0.531 2.0618-1.4209 2.655c-0.37262 0.24812-0.58594 0.64725-0.58594 1.095s0.21331 0.84688 0.58594 1.095z"
+          fill="#f6a96c" stroke-width=".0625" />
+        <path d="m26.375 11.249v4.6875c0 6.7125-5.5374 12.25-12.25 12.25v-16.937z" fill="#f40000"
+          stroke-width=".0625" />
+        <g transform="matrix(.0625 0 0 .0625 0 -.0009375)" fill="#f6a96c">
+          <path d="m235 120-9 13.5v-28.2c0.601 5.999 3.9 11.4 9 14.7z" />
+          <path
+            d="m257.8 42.599c0 17.1-8.399 32.999-22.8 42.299-5.4 3.301-8.399 9.001-9 15v-48.898c1.199-2.701 1.8-5.402 1.8-8.401s-0.601-6-1.8-8.699v-20.4l9-13.5c14.401 9.6 22.8 25.499 22.8 42.599z" />
+        </g>
+        <path d="m0 26.312v0.9375c0 2.5875 2.1625 4.75 4.75 4.75h18.812c2.5875 0 4.6875-2.1625 4.6875-4.75v-0.9375z"
+          fill="#fdbf00" stroke-width=".0625" />
+        <path d="m28.25 26.312v0.9375c0 2.5875-2.1 4.75-4.6875 4.75h-9.4375v-5.6875z" fill="#ff9f00"
+          stroke-width=".0625" />
+      </symbol>
+
+    </defs>
+  </svg>
+
+  <main>
+    <section id="bio">
+      <header>
+        <h1>{{ basics.name }}</h1>
+      </header>
+      <ul>
+        <li>
+          <img src="{{ basics.image }}">
+        </li>
+        <li>{{ basics.label }}</li>
+        <li><a href="https://psych.princeton.edu">{{ education[0].area }}</a></li>
+        <li><a href="{{ education[0].url }}">{{ education[0].institution }}</a></li>
+
+      </ul>
+      <p>{{ basics.summary }}</p>
+      <footer>
+        {% for profile in basics.profiles %}
+        <a href="{{ profile.url }}">
+          <svg class="icon icon-{{ profile.network }}" width="32" height="32">
+            <use xlink:href="#icon-{{ profile.network }}"></use>
+          </svg>
+        </a>
+        {% endfor %}
+      </footer>
+    </section>
+    <section id="papers">
+      <h1>Papers</h1>
+      {% for paper in publications %}
+      <article>
+        <header>
+          <a href="{{ paper.url }}">{{ paper.name }}</a>
+        </header>
+        <p>{{ paper.authors }}</p>
+        <footer>
+          {% if paper.publisher.url is defined %}
+          <a href="{{ paper.publisher.url }}"><span class="journal_badge">{{ paper.publisher.name }}</span></a>
+          {% endif %}
+          {% if paper.preprint is defined %}
+          <a href="{{ paper.preprint.url }}"><span class="preprint_badge">{{ paper.preprint.name }} {{
+              paper.releaseDate[:4] }}</span></a>
+          {% endif %}
+          {% if paper.code is defined %}
+          <a href="{{ paper.code }}"><span class="code_badge">code</span></a>
+          {% endif %}
+        </footer>
+      </article>
+      {% endfor %}
+    </section>
+
+    <section id="talks">
+      <h1>Presentations</h1>
+      <ul>
+        {% for talk in presentations %}
+        <li>
+          <time datetime="{{ talk.date }}">{{ talk.date.strftime('%m/%Y') }}</time>
+          {{ talk.name }} at {{ talk.venue }}.
+          {% if talk.url is defined %}
+          <a href="{{ talk.url }}"><span class="border_badge">{{ talk.type }}</span></a>
+          {% else %}
+          <span class="border_badge">{{ talk.type }}</span>
+          {% endif %}
+          <br>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section id="awards">
+      <h1>Awards</h1>
+      <ul>
+        {% for award in awards %}
+        <li>
+          <time datetime="{{ award.date }}">{{ award.date.strftime('%Y') }}</time>
+          {% if award.url is defined %}
+          <a href="{{ award.url }}">{{ award.title }}</a>
+          {% else %}
+          {{ award.title }}
+          {% endif %}
+          from {{ award.awarder }}.
+          <br>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section id='software'>
+      <h1>Software</h1>
+      <h2>macOS</h2>
+      <ul>
+        {% for project in projects %}
+        <li>
+          <a href="{{ project.url }}">
+            <svg class=" icon icon-{{ project.name }}" width="64" height="64">
+              <use xlink:href="#icon-{{ project.name }}"></use>
+            </svg>
+          </a>
+          <p><strong>{{project.name}}</strong>. {{ project.summary }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section id="media">
+      <h1>Media</h1>
+      <ul>
+        {% for article in media %}
+        <li><a href="{{ article.url }}">{{ article.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; {{ basics.name }} <time datetime="2023-10-28">2023</time></p>
+  </footer>
+</body>
+
+</html>
