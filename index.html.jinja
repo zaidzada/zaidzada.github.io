@@ -209,8 +209,12 @@ jinja -d data.yaml index.html.jinja > index.html
       padding-bottom: 1.5em;
     }
 
+    article>a {
+      display: block;
+    }
+
     article p {
-      margin: 4px auto;
+      display: inline;
       font-size: 0.9em;
     }
 
@@ -460,17 +464,16 @@ jinja -d data.yaml index.html.jinja > index.html
       <h1>Papers</h1>
       {% for paper in publications %}
       <article>
-        <header>
-          <a href="{{ paper.url }}">{{ paper.name }}</a>
-        </header>
+        <a href="{{ paper.publisher.url }}">{{ paper.name }}</a>
         <p>{{ paper.authors }}</p>
+        <p>{{ paper.suffix }}</p>
+        </p>
         <footer>
-          {% if paper.publisher.url is defined %}
-          <a href="{{ paper.publisher.url }}"><span class="journal_badge">{{ paper.publisher.name }}</span></a>
+          {% if paper.doi is defined %}
+          <a href="{{ paper.doi }}"><span class="journal_badge">doi</span></a>
           {% endif %}
           {% if paper.preprint is defined %}
-          <a href="{{ paper.preprint.url }}"><span class="preprint_badge">{{ paper.preprint.name }} {{
-              paper.releaseDate[:4] }}</span></a>
+          <a href="{{ paper.preprint.url }}"><span class="preprint_badge">preprint</span></a>
           {% endif %}
           {% if paper.code is defined %}
           <a href="{{ paper.code }}"><span class="code_badge">code</span></a>
