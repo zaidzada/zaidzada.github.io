@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--  
-
+pip install jinja-cli
 jinja -d data.yaml index.html.jinja > index.html
 -->
 
@@ -457,7 +457,7 @@ jinja -d data.yaml index.html.jinja > index.html
       </header>
       <ul>
         <li>
-          <img src="{{ basics.image }}">
+          <img src="{{ basics.image }}" alt="profile picture">
         </li>
         <li>{{ basics.label }}</li>
         <li><a href="https://psych.princeton.edu">{{ education[0].area }}</a></li>
@@ -503,7 +503,7 @@ jinja -d data.yaml index.html.jinja > index.html
       <ul>
         {% for talk in presentations %}
         <li>
-          <time datetime="{{ talk.date }}">{{ talk.date.strftime('%m/%Y') }}</time>
+          <time datetime="{{ talk.date }}">{{ talk.date.strftime('%Y') }}</time>
           {{ talk.name }} at <em>{{ talk.venue }}</em>.
           {% if talk.url is defined %}
           <a href="{{ talk.url }}"><span class="border_badge">{{ talk.type }}</span></a>
