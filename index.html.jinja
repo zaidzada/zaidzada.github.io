@@ -253,6 +253,17 @@ jinja -d data.yaml index.html.jinja > index.html
       border: 1px solid var(--foreground);
     }
 
+    #talks ul,
+    #awards ul {
+      padding-left: 0%;
+      list-style-type: none;
+    }
+
+    #talks ul li,
+    #awards ul li {
+      padding-bottom: .75em;
+    }
+
     #talks ul li {
       margin: 10px 0;
     }
@@ -493,7 +504,7 @@ jinja -d data.yaml index.html.jinja > index.html
         {% for talk in presentations %}
         <li>
           <time datetime="{{ talk.date }}">{{ talk.date.strftime('%m/%Y') }}</time>
-          {{ talk.name }} at {{ talk.venue }}.
+          {{ talk.name }} at <em>{{ talk.venue }}</em>.
           {% if talk.url is defined %}
           <a href="{{ talk.url }}"><span class="border_badge">{{ talk.type }}</span></a>
           {% else %}
@@ -516,7 +527,7 @@ jinja -d data.yaml index.html.jinja > index.html
           {% else %}
           {{ award.title }}
           {% endif %}
-          from {{ award.awarder }}.
+          from <em>{{ award.awarder }}</em>.
           <br>
         </li>
         {% endfor %}
