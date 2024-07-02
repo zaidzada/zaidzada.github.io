@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--  
-pip install jinja-cli
-jinja -d data.yaml index.html.jinja > index.html
--->
 
 <head>
   <title>Zaid Zada</title>
@@ -63,6 +59,7 @@ jinja -d data.yaml index.html.jinja > index.html
 
     body {
       font-family: sans-serif;
+      font-size: medium;
       color: var(--foreground);
       background-color: var(--background);
       margin: 0 auto;
@@ -169,7 +166,6 @@ jinja -d data.yaml index.html.jinja > index.html
 
     #bio p {
       float: left;
-      text-align: top;
       margin-top: 0px;
       margin-left: 15px;
       width: calc(100% - 176px - 15px);
@@ -516,6 +512,39 @@ understanding of the other.
     </section>
     <section id="papers">
       <h1>Papers</h1>
+      <p>For a complete list of publications, see my <a href="https://scholar.google.com/citations?user=RC_hwc0AAAAJ">google scholar page.</a></p><br />
+      
+      <article>
+        <a href="https://www.biorxiv.org/content/10.1101/2024.06.12.598513v1">Scale matters: Large language models with billions (rather than millions) of parameters better match neural representations of natural language</a>
+        <p>Hong, Z., Wang, H., <strong>Zada, Z.</strong>, Gazula, H., Turner, D., Aubrey, B., Niekerken, L., Doyle, W., Devore, S., Dugan, P., Friedman, D., Devinsky, O., Flinker, A., Hasson, U., Nastase, S. A., & Goldstein, A.</p>
+        <p><em>bioRxiv</em>, 2024.</p>
+        </p>
+        <footer>
+          
+          <a href="https://doi.org/10.1101/2024.06.12.598513"><span class="journal_badge">doi</span></a>
+          
+          
+          <a href="https://www.biorxiv.org/content/10.1101/2024.06.12.598513v1"><span class="preprint_badge">preprint</span></a>
+          
+          
+        </footer>
+      </article>
+      
+      <article>
+        <a href="https://www.biorxiv.org/content/10.1101/2024.06.04.597448v1">Aligning Brains into a Shared Space Improves their Alignment to Large Language Models</a>
+        <p>Bhattacharjee, A., <strong>Zada, Z.</strong>, Wang, H., Aubrey, B., Doyle, W., Dugan, P., Friedman, D., Devinsky, O., Flinker, A., Ramadge, P. J., Hasson, U., Goldstein, A., & Nastase, S. A.</p>
+        <p><em>bioRxiv</em>, 2024.</p>
+        </p>
+        <footer>
+          
+          <a href="https://doi.org/10.1101/2024.06.04.597448"><span class="journal_badge">doi</span></a>
+          
+          
+          <a href="https://www.biorxiv.org/content/10.1101/2024.06.04.597448v1"><span class="preprint_badge">preprint</span></a>
+          
+          
+        </footer>
+      </article>
       
       <article>
         <a href="https://www.biorxiv.org/content/10.1101/2023.06.27.546708v1">A shared linguistic space for transmitting our thoughts from brain to brain in natural conversations</a>
@@ -570,13 +599,13 @@ understanding of the other.
       </article>
       
       <article>
-        <a href="https://www.biorxiv.org/content/10.1101/2022.03.01.482586v1">Brain embeddings with shared geometry to artificial contextual embeddings, as a code for representing language in the human brain</a>
-        <p>Goldstein, A., Dabush, A., Aubrey, B., Schain, M., Nastase, S. A., <strong>Zada, Z.</strong>, ... & Hasson, U. (2022).</p>
-        <p><em>BioRxiv</em>, 2022-03.</p>
+        <a href="https://www.nature.com/articles/s41467-024-46631-y">Alignment of brain embeddings and artificial contextual embeddings in natural language points to common geometric patterns</a>
+        <p>Goldstein, A., Grinstein-Dabush, A., Schain, M., Wang, H., Hong, Z., Aubrey, B., Nastase, S. A., <strong>Zada, Z.</strong>, Ham, E., Feder, A., Gazula, H., Buchnik, E., Doyle, W., Devore, S., Dugan, P., Reichart, R., Friedman, D., Brenner, M., … Hasson, U. (2024).</p>
+        <p><em>Nature Communications</em>, 15(1), 2768.</p>
         </p>
         <footer>
           
-          <a href="https://doi.org/10.1101/2022.03.01.482586"><span class="journal_badge">doi</span></a>
+          <a href="https://doi.org/10.1038/s41467-024-46631-y"><span class="journal_badge">doi</span></a>
           
           
           <a href="https://www.biorxiv.org/content/10.1101/2022.03.01.482586v1"><span class="preprint_badge">preprint</span></a>
@@ -608,6 +637,15 @@ understanding of the other.
     <section id="talks">
       <h1>Presentations</h1>
       <ul>
+        
+        <li>
+          <time datetime="2024-06-25">2024</time>
+          Mapping individual and shared cortical language representations during real-time natural dialogues at <em>Organization for Human Brain Mapping</em>.
+          
+          <a href="https://ww6.aievolution.com/hbm2401/index.cfm?do=ev.viewEv&ev=1468"><span class="border_badge">talk</span></a>
+          
+          <br>
+        </li>
         
         <li>
           <time datetime="2023-11-14">2023</time>
@@ -676,6 +714,15 @@ understanding of the other.
           <a href="https://www.neurolang.org/2023/award-winners/">Graduate Student Merit Award</a>
           
           from <em>Society for the Neurobiology of Language</em>.
+          <br>
+        </li>
+        
+        <li>
+          <time datetime="2020-02-27">2020</time>
+          
+          Centennial Fellowship
+          
+          from <em>Princeton University Graduate School</em>.
           <br>
         </li>
         
@@ -756,7 +803,7 @@ understanding of the other.
   </main>
 
   <footer>
-    <p>&copy; Zaid Zada <time datetime="2023-12-05">2023</time></p>
+    <p>&copy; Zaid Zada <time datetime="2024-06-02">2024</time></p>
   </footer>
 </body>
 

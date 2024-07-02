@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--  
+{#<!--  
 pip install jinja-cli
 jinja -d data.yaml index.html.jinja > index.html
--->
-
+-->#}
 <head>
   <title>{{ basics.name }}</title>
   <meta charset="utf-8">
@@ -63,6 +62,7 @@ jinja -d data.yaml index.html.jinja > index.html
 
     body {
       font-family: sans-serif;
+      font-size: medium;
       color: var(--foreground);
       background-color: var(--background);
       margin: 0 auto;
@@ -169,7 +169,6 @@ jinja -d data.yaml index.html.jinja > index.html
 
     #bio p {
       float: left;
-      text-align: top;
       margin-top: 0px;
       margin-left: 15px;
       width: calc(100% - 176px - 15px);
@@ -477,6 +476,7 @@ jinja -d data.yaml index.html.jinja > index.html
     </section>
     <section id="papers">
       <h1>Papers</h1>
+      <p>For a complete list of publications, see my <a href="https://scholar.google.com/citations?user=RC_hwc0AAAAJ">google scholar page.</a></p><br />
       {% for paper in publications %}
       <article>
         <a href="{{ paper.publisher.url }}">{{ paper.name }}</a>
@@ -563,7 +563,7 @@ jinja -d data.yaml index.html.jinja > index.html
   </main>
 
   <footer>
-    <p>&copy; {{ basics.name }} <time datetime="2023-12-05">2023</time></p>
+    <p>&copy; {{ basics.name }} <time datetime="2024-06-02">2024</time></p>
   </footer>
 </body>
 
