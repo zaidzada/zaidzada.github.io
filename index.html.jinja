@@ -337,8 +337,8 @@ jinja -d data.yaml index.html.jinja > index.html
         <li><a href="#bio">Home</a></li>
         <li><a href="#papers">Papers</a></li>
         <li><a href="#talks">Talks</a></li>
-        <li><a href="#software">Software</a></li>
         <li><a href="#media">Media</a></li>
+        <li><a href="#software">Software</a></li>
       </ul>
     </nav>
   </header>
@@ -474,9 +474,11 @@ jinja -d data.yaml index.html.jinja > index.html
         {% endfor %}
       </footer>
     </section>
+
     <section id="papers">
-      <h1>Papers</h1>
+      <h1>Publications</h1>
       <p>For a complete list of publications, see my <a href="https://scholar.google.com/citations?user=RC_hwc0AAAAJ">google scholar page.</a></p><br />
+
       {% for paper in publications %}
       <article>
         <a href="{{ paper.publisher.url }}">{{ paper.name }}</a>
@@ -493,9 +495,32 @@ jinja -d data.yaml index.html.jinja > index.html
           {% if paper.code is defined %}
           <a href="{{ paper.code }}"><span class="code_badge">code</span></a>
           {% endif %}
+          {% if paper.media is defined %}
+          <a href="{{ paper.media.url }}" alt="{{ paper.media.name }}"><span class="border_badge">media</span></a>
+          {% endif %}
         </footer>
       </article>
       {% endfor %}
+
+      <h2>Preprints</h2>
+
+      {% for paper in preprints %}
+      <article>
+        <a href="{{ paper.publisher.url }}">{{ paper.name }}</a>
+        <p>{{ paper.authors }}</p>
+        <p>{{ paper.suffix }}</p>
+        </p>
+        <footer>
+          {% if paper.doi is defined %}
+          <a href="{{ paper.doi }}"><span class="journal_badge">doi</span></a>
+          {% endif %}
+          {% if paper.code is defined %}
+          <a href="{{ paper.code }}"><span class="code_badge">code</span></a>
+          {% endif %}
+        </footer>
+      </article>
+      {% endfor %}
+
     </section>
 
     <section id="talks">
@@ -512,6 +537,15 @@ jinja -d data.yaml index.html.jinja > index.html
           {% endif %}
           <br>
         </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section id="media">
+      <h1>Media</h1>
+      <ul>
+        {% for article in media %}
+        <li><a href="{{ article.url }}">{{ article.name }}</a></li>
         {% endfor %}
       </ul>
     </section>
@@ -547,15 +581,6 @@ jinja -d data.yaml index.html.jinja > index.html
           </a>
           <p><strong>{{project.name}}</strong>. {{ project.summary }}</p>
         </li>
-        {% endfor %}
-      </ul>
-    </section>
-
-    <section id="media">
-      <h1>Media</h1>
-      <ul>
-        {% for article in media %}
-        <li><a href="{{ article.url }}">{{ article.name }}</a></li>
         {% endfor %}
       </ul>
     </section>
