@@ -75,6 +75,12 @@
       padding-left: 10px;
     }
 
+    #bio h1 {
+      padding-right: 5px;
+      display: flex;
+      justify-content: space-between;
+    }
+
     main h2 {
       font-size: 1em;
       font-style: italic;
@@ -306,11 +312,8 @@
       }
 
       #bio h1 {
-        text-align: center;
-        text-decoration: underline;
-        text-decoration-color: var(--accent);
-        text-underline-offset: 5px;
         border: none;
+        border-bottom: 2px solid var(--accent);
       }
 
       #bio p {
@@ -384,7 +387,7 @@
   <main>
     <section id="bio">
       <header>
-        <h1>Zaid Zada</h1>
+        <h1>Zaid Zada <span style="text-align: right">زيد زاده</span></h1>
       </header>
       <ul>
         <li>

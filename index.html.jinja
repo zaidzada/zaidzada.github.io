@@ -78,6 +78,12 @@ jinja -d data.yaml index.html.jinja > index.html
       padding-left: 10px;
     }
 
+    #bio h1 {
+      padding-right: 5px;
+      display: flex;
+      justify-content: space-between;
+    }
+
     main h2 {
       font-size: 1em;
       font-style: italic;
@@ -309,11 +315,8 @@ jinja -d data.yaml index.html.jinja > index.html
       }
 
       #bio h1 {
-        text-align: center;
-        text-decoration: underline;
-        text-decoration-color: var(--accent);
-        text-underline-offset: 5px;
         border: none;
+        border-bottom: 2px solid var(--accent);
       }
 
       #bio p {
@@ -387,7 +390,7 @@ jinja -d data.yaml index.html.jinja > index.html
   <main>
     <section id="bio">
       <header>
-        <h1>{{ basics.name }}</h1>
+        <h1>{{ basics.name }} <span style="text-align: right">{{ basics.name_alt }}</span></h1>
       </header>
       <ul>
         <li>
