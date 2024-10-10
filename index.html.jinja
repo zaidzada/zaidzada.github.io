@@ -4,6 +4,7 @@
 pip install jinja-cli
 jinja -d data.yaml index.html.jinja > index.html
 -->#}
+
 <head>
   <title>{{ basics.name }}'s homepage</title>
   <meta charset="utf-8">
@@ -291,7 +292,7 @@ jinja -d data.yaml index.html.jinja > index.html
       margin-top: 0;
     }
 
-/* 
+    /* 
     #teaching ul>li {
       list-style-type: none;
       padding-bottom: 1em;
@@ -415,7 +416,8 @@ jinja -d data.yaml index.html.jinja > index.html
 
     <section id="papers">
       <h1>Publications</h1>
-      <p>For a complete list of publications, see my <a href="https://scholar.google.com/citations?user=RC_hwc0AAAAJ">google scholar page.</a></p><br />
+      <p>For a complete list of publications, see my <a
+          href="https://scholar.google.com/citations?user=RC_hwc0AAAAJ">google scholar page.</a></p><br />
 
       {% for paper in publications %}
       <article>
@@ -486,17 +488,17 @@ jinja -d data.yaml index.html.jinja > index.html
         <li>
           <p><strong>{{school.name}}</strong>, {{school.position}}</p>
           <ul>
-          {% for course in school.courses %}
+            {% for course in school.courses %}
             <li>
-              <time>20{{course.term[2:]}}</time> 
+              <time>20{{course.term[2:]}}</time>
               {{course.name}}
               {% if course.url is defined %}
-                (<a href="{{course.url}}">{{course.codename}}</a>)
+              (<a href="{{course.url}}">{{course.codename}}</a>)
               {% else %}
-                ({{course.codename}})
+              ({{course.codename}})
               {% endif %}
             </li>
-          {% endfor %}
+            {% endfor %}
           </ul>
         </li>
         {% endfor %}
@@ -533,7 +535,7 @@ jinja -d data.yaml index.html.jinja > index.html
   </main>
 
   <footer>
-    <p>&copy; {{ basics.name }} <time datetime="2024-08-26">2024</time></p>
+    <p>&copy; {{ basics.name }} <time datetime="2024-10-10">2024</time></p>
   </footer>
 </body>
 
