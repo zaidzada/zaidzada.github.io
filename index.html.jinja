@@ -395,7 +395,7 @@ jinja -d data.yaml index.html.jinja > index.html
       </header>
       <ul>
         <li>
-          <img src="{{ basics.image }}" alt="profile picture">
+          <img src="{{ basics.image }}" alt="profile picture" width="175px">
         </li>
         <li>{{ basics.label }}</li>
         <li><a href="https://psych.princeton.edu">{{ education[0].area }}</a></li>
@@ -535,7 +535,7 @@ jinja -d data.yaml index.html.jinja > index.html
   </main>
 
   <footer>
-    <p>&copy; {{ basics.name }} <time datetime="2024-10-10">2024</time></p>
+    <p>&copy; {{ basics.name }} <time datetime="2024-12-19">2024</time></p>
   </footer>
 </body>
 
