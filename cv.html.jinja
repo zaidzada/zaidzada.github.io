@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{{ basics.name }}'s CV</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32">
+  <style type="text/css">
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: medium;
+      max-width: 800px;
+      margin: 1em auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr 4.85fr;
+      gap: 20px;
+      line-height: 1.6;
+    }
+
+    main>header {
+      text-align: center;
+      grid-column: 1 / span 2;
+      margin-bottom: 20px;
+      border-bottom: 3px solid black;
+    }
+
+    main>section {
+      display: contents;
+    }
+
+    section>header {
+      grid-column: 1;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    section>ul {
+      grid-column: 2;
+      padding-left: 2em;
+    }
+
+    section h1 {
+      margin: 0;
+      font-size: 1em;
+    }
+
+    section>ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+
+    section>ul>li {
+      margin-bottom: 1em;
+    }
+
+    section>ul ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+
+    section {
+      margin-bottom: 10px;
+    }
+
+    .split {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .indent>time {
+      margin-right: 1.5em;
+    }
+
+    .tight>li {
+      margin-bottom: 0;
+    }
+
+    .footnote {
+      color: gray;
+      font-size: small;
+      font-weight: normal;
+      text-decoration: none;
+    }
+
+    .name {
+      margin: 0;
+      font-size: xxx-large;
+    }
+
+    main>header>ul {
+      display: inline;
+      padding: 0;
+      list-style: none;
+
+      >li {
+        display: inline;
+      }
+
+      >li:after {
+        content: " •";
+      }
+
+      >li:last-child:after {
+        content: none;
+      }
+    }
+
+    @media screen and (max-width: 650px) {
+
+      main {
+        margin: 0 1em;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr;
+      }
+
+      section>header {
+        grid-column: 1;
+        border-bottom: 1px solid black;
+      }
+
+      section>ul {
+        grid-column: 1;
+      }
+
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        margin: 0.25in;
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+
+    <header>
+      <h1 class="name">Zaid Zada</h1>
+      <ul>
+        <li>Neuroscience Institute, Princeton, NJ 08540</li>
+        <li><a href="mailto:zzada@princeton.edu">zzada@princeton.edu</a></li>
+        <li><a href="https://www.zaidzada.com">www.zaidzada.com</a></li>
+      </ul>
+    </header>
+
+    <section>
+      <header>
+        <h1>Education</h1>
+      </header>
+      <ul>
+        {% for uni in education %}
+        <li>
+          <ul>
+            <li class="split">
+              <span><strong>{{uni.institution}}</strong></span>
+              <span>{{uni.loc}}</span>
+            </li>
+            <li class="split">
+              <span>{{uni.studyType}} in {{uni.area}}.</span>
+              <span>
+                <i>{{uni.endDate.strftime('%B, %Y')}}</i>
+              </span>
+            </li>
+            {% if uni.advisor is defined %}
+            <li>Advisor(s): {{uni.advisor}}</li>
+            {% endif %}
+          </ul>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <header>
+        <h1>Publications</h1>
+        <p class="footnote">[* shared authorship]</p>
+      </header>
+      <ul>
+        {% for paper in publications %}
+        <li>{{paper.citation}}
+          {% if paper.doi is defined %}
+          <a href="{{ paper.doi }}"><span class="journal_badge">{{ paper.doi }}</span></a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <header>
+        <h1>Preprints</h1>
+      </header>
+      <ul>
+        {% for paper in preprints %}
+        <li>{{paper.citation}}
+          {% if paper.doi is defined %}
+          <a href="{{ paper.doi }}"><span class="journal_badge">{{ paper.doi }}</span></a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <header>
+        <h1>Conference Presentations</h1>
+        <p class="footnote">[<u>presenter</u>]</p>
+      </header>
+      <ul>
+        {% for talk in presentations %}
+        <li>{{talk.citation}} <span class="border_badge">[{{ talk.type }}]</span> </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <header>
+        <h1>(Contributing Author)</h1>
+      </header>
+      <ul>
+        {% for talk in conference_coauthor %}
+        <li>{{talk.citation}} <span class="border_badge">[{{ talk.type }}]</span> </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <header>
+        <h1>Teaching Experience</h1>
+      </header>
+      <ul>
+        {% for school in teaching %}
+        <li>
+          <ul class="tight">
+            <li class="split">
+              <span><strong>{{school.name}}</strong></span>
+              <span>{{school.startDate.strftime('%Y')}} – {{school.endDate.strftime('%Y')}}</span>
+            </li>
+            <li><i>{{school.position}}</i></li>
+            <li>
+              <ul style="list-style-type: disc; padding-left: 2em;">
+                {% for course in school.courses %}
+                <li> {{course.name}} </li>
+                {% endfor %}
+              </ul>
+            </li>
+          </ul>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <header>
+        <h1>Awards</h1>
+      </header>
+      <ul class="tight">
+        {% for award in awards %}
+        <li class="indent">
+          <time>{{ award.date.strftime('%Y') }}</time>
+          {% if award.url is defined %}
+          <a href="{{ award.url }}">{{ award.title }}</a>
+          {% else %}
+          {{ award.title }}
+          {% endif %}
+          from <em>{{ award.awarder }}</em>.
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <header>
+        <h1>Industry Experience</h1>
+      </header>
+      <ul>
+        {% for position in work %}
+        <li>
+          <ul>
+            <li class="split">
+              <span><strong>{{position.name}}</strong></span>
+              <span>{{position.startDate.strftime('%Y')}} – {{position.endDate.strftime('%Y')}}</span>
+            </li>
+            <li><i>{{position.position}}</i></li>
+          </ul>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <header>
+        <h1>Media Coverage</h1>
+      </header>
+      <ul class="tight">
+        {% for article in media %}
+        <li class="indent">
+          <time>{{article.date.strftime('%Y')}}</time>
+          <span>{{article.name}}.</span>
+          {% if article.url is defined %}
+          <a href="{{article.url}}">[link]</a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+  </main>
+
+</body>
+
+</html>
