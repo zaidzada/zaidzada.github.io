@@ -20,7 +20,7 @@
     main {
       display: grid;
       grid-template-columns: 1fr 4.85fr;
-      gap: 20px;
+      gap: 2em;
       line-height: 1.6;
     }
 
@@ -130,6 +130,7 @@
       section>ul {
         grid-column: 1;
       }
+
     }
 
     @media (prefers-color-scheme: dark) {
@@ -156,6 +157,11 @@
         padding: 0;
         margin: 0.25in;
         font-size: 11px;
+      }
+
+      .footnote {
+        font-size: 9px;
+        color: black;
       }
     }
   </style>
@@ -208,7 +214,7 @@
       </header>
       <ul>
         {% for paper in publications %}
-        <li>{{paper.citation}}
+        <li>{{paper.authors}} ({{paper.date.strftime('%Y')}}). {{paper.title}}. {{paper.publisher}}.
           {% if paper.doi is defined %}
           <a href="{{ paper.doi }}"><span class="journal_badge">{{ paper.doi }}</span></a>
           {% endif %}
@@ -223,7 +229,7 @@
       </header>
       <ul>
         {% for paper in preprints %}
-        <li>{{paper.citation}}
+        <li>{{paper.authors}} ({{paper.date.strftime('%Y')}}). {{paper.title}}. <i>{{paper.publisher}}</i>.
           {% if paper.doi is defined %}
           <a href="{{ paper.doi }}"><span class="journal_badge">{{ paper.doi }}</span></a>
           {% endif %}
@@ -239,7 +245,9 @@
       </header>
       <ul>
         {% for talk in presentations %}
-        <li>{{talk.citation}} <span class="border_badge">[{{ talk.type }}]</span> </li>
+        <li>{{talk.authors}} ({{talk.date.strftime('%Y')}}). {{talk.title}}. <i>{{talk.venue}}</i>, {{talk.city}}.
+          <span class="border_badge">[{{ talk.type }}]</span>
+        </li>
         {% endfor %}
       </ul>
     </section>
@@ -250,7 +258,9 @@
       </header>
       <ul>
         {% for talk in conference_coauthor %}
-        <li>{{talk.citation}} <span class="border_badge">[{{ talk.type }}]</span> </li>
+        <li>{{talk.authors}} ({{talk.date.strftime('%Y')}}). {{talk.title}}. <i>{{talk.venue}}</i>, {{talk.city}}.
+          <span class="border_badge">[{{ talk.type }}]</span>
+        </li>
         {% endfor %}
       </ul>
     </section>
