@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-{#<!--  
-pip install jinja-cli
-jinja -d data.yaml index.html.jinja > index.html
--->#}
 
 <head>
   <title>{{ basics.name }}'s homepage</title>
@@ -338,6 +334,7 @@ jinja -d data.yaml index.html.jinja > index.html
         <li><a href="#presentations">Presentations</a></li>
         <li><a href="#teaching">Teaching</a></li>
         <li><a href="#media">Media</a></li>
+        <li><a target="_blank" href="cv.html">CV</a></li>
       </ul>
     </nav>
   </header>
@@ -421,9 +418,8 @@ jinja -d data.yaml index.html.jinja > index.html
 
       {% for paper in publications %}
       <article>
-        <a href="{{ paper.publisher.url }}">{{ paper.name }}</a>
-        <p>{{ paper.authors }}</p>
-        <p>{{ paper.suffix }}</p>
+        <a href="{{ paper.url }}">{{ paper.title }}</a>
+        <p>{{ paper.authors }} ({{paper.date.strftime('%Y')}}). {{ paper.publisher }}.</p>
         </p>
         <footer>
           {% if paper.doi is defined %}
@@ -446,9 +442,8 @@ jinja -d data.yaml index.html.jinja > index.html
 
       {% for paper in preprints %}
       <article>
-        <a href="{{ paper.publisher.url }}">{{ paper.name }}</a>
-        <p>{{ paper.authors }}</p>
-        <p>{{ paper.suffix }}</p>
+        <a href="{{ paper.url }}">{{ paper.title }}</a>
+        <p>{{ paper.authors }} ({{paper.date.strftime('%Y')}}). {{ paper.publisher }}.</p>
         </p>
         <footer>
           {% if paper.doi is defined %}
@@ -469,7 +464,7 @@ jinja -d data.yaml index.html.jinja > index.html
         {% for talk in presentations %}
         <li>
           <time datetime="{{ talk.date }}">{{ talk.date.strftime('%Y') }}</time>
-          {{ talk.name }} at <em>{{ talk.venue }}</em>.
+          {{ talk.title }} at <em>{{ talk.venue }}</em>.
           {% if talk.url is defined %}
           <a href="{{ talk.url }}"><span class="border_badge">{{ talk.type }}</span></a>
           {% else %}
@@ -535,7 +530,7 @@ jinja -d data.yaml index.html.jinja > index.html
   </main>
 
   <footer>
-    <p>&copy; {{ basics.name }} <time datetime="2024-12-19">2024</time></p>
+    <p>&copy; {{ basics.name }} <time datetime="2025-01-27">2025</time></p>
   </footer>
 </body>
 
