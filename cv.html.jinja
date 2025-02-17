@@ -155,7 +155,7 @@
     @media print {
       body {
         padding: 0;
-        margin: 0.25in;
+        margin: 0.5in;
         font-size: 11px;
       }
 
@@ -198,6 +198,9 @@
                 <i>{{uni.endDate.strftime('%B, %Y')}}</i>
               </span>
             </li>
+            <!-- {% if uni.score is defined %}
+            <li>GPA: {{uni.score}} / 4.0</li>
+            {% endif %} -->
             {% if uni.advisor is defined %}
             <li>Advisor(s): {{uni.advisor}}</li>
             {% endif %}
@@ -223,6 +226,17 @@
       </ul>
     </section>
 
+    <!-- <section>
+      <header>
+        <h1>Forthcoming</h1>
+      </header>
+      <ul>
+        {% for paper in forthcoming %}
+        <li>{{paper.authors}} ({{paper.date.strftime('%Y')}}). {{paper.title}}. <i>In Prep.</i></li>
+        {% endfor %}
+      </ul>
+    </section>
+ -->
     <section>
       <header>
         <h1>Preprints</h1>
