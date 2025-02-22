@@ -212,6 +212,24 @@
 
     <section>
       <header>
+        <h1>Selected works</h1>
+      </header>
+      <ul>
+        {% for paper in preprints %}
+        {% if paper.featured %}
+        <li>{{paper.authors}} ({{paper.date.strftime('%Y')}}). {{paper.title}}. <i>{{paper.publisher}}</i>.</li>
+        {% endif %}
+        {% endfor %}
+        {% for paper in publications %}
+        {% if paper.featured %}
+        <li>{{paper.authors}} ({{paper.date.strftime('%Y')}}). {{paper.title}}. {{paper.publisher}}.</li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <header>
         <h1>Publications</h1>
         <p class="footnote">[* shared authorship]</p>
       </header>
@@ -226,17 +244,6 @@
       </ul>
     </section>
 
-    <!-- <section>
-      <header>
-        <h1>Forthcoming</h1>
-      </header>
-      <ul>
-        {% for paper in forthcoming %}
-        <li>{{paper.authors}} ({{paper.date.strftime('%Y')}}). {{paper.title}}. <i>In Prep.</i></li>
-        {% endfor %}
-      </ul>
-    </section>
- -->
     <section>
       <header>
         <h1>Preprints</h1>

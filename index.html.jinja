@@ -412,14 +412,33 @@
     </section>
 
     <section id="papers">
-      <h1>Publications</h1>
-      <p>For a complete list of publications, see my <a
-          href="https://scholar.google.com/citations?user=RC_hwc0AAAAJ">google scholar page.</a></p><br />
+      <h1>Selected works</h1>
+      <p>For a complete list of papers, see my <a href="https://scholar.google.com/citations?user=RC_hwc0AAAAJ">google
+          scholar page.</a></p><br />
 
-      {% for paper in publications %}
+      {% for paper in preprints %}
+      {% if paper.featured %}
       <article>
         <a href="{{ paper.url }}">{{ paper.title }}</a>
-        <p>{{ paper.authors }} ({{paper.date.strftime('%Y')}}). {{ paper.publisher }}.</p>
+        <p>{{ paper.authors }} ({{paper.date.strftime('%Y')}}). <br /> {{ paper.publisher }}.</p>
+        </p>
+        <footer>
+          {% if paper.doi is defined %}
+          <a href="{{ paper.doi }}"><span class="journal_badge">doi</span></a>
+          {% endif %}
+          {% if paper.code is defined %}
+          <a href="{{ paper.code }}"><span class="code_badge">code</span></a>
+          {% endif %}
+        </footer>
+      </article>
+      {% endif %}
+      {% endfor %}
+
+      {% for paper in publications %}
+      {% if paper.featured %}
+      <article>
+        <a href="{{ paper.url }}">{{ paper.title }}</a>
+        <p>{{ paper.authors }} ({{paper.date.strftime('%Y')}}). <br /> {{ paper.publisher }}.</p>
         </p>
         <footer>
           {% if paper.doi is defined %}
@@ -436,24 +455,7 @@
           {% endif %}
         </footer>
       </article>
-      {% endfor %}
-
-      <h2>Preprints</h2>
-
-      {% for paper in preprints %}
-      <article>
-        <a href="{{ paper.url }}">{{ paper.title }}</a>
-        <p>{{ paper.authors }} ({{paper.date.strftime('%Y')}}). {{ paper.publisher }}.</p>
-        </p>
-        <footer>
-          {% if paper.doi is defined %}
-          <a href="{{ paper.doi }}"><span class="journal_badge">doi</span></a>
-          {% endif %}
-          {% if paper.code is defined %}
-          <a href="{{ paper.code }}"><span class="code_badge">code</span></a>
-          {% endif %}
-        </footer>
-      </article>
+      {% endif %}
       {% endfor %}
 
     </section>
@@ -530,7 +532,7 @@
   </main>
 
   <footer>
-    <p>&copy; {{ basics.name }} <time datetime="2025-01-27">2025</time></p>
+    <p>&copy; {{ basics.name }} <time datetime="2025-02-22">2025</time></p>
   </footer>
 </body>
 
