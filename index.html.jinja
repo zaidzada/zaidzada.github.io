@@ -224,7 +224,8 @@
     .conference_badge,
     .preprint_badge,
     .border_badge,
-    .code_badge {
+    .code_badge,
+    .data_badge {
       display: inline-block;
       padding: .25em .4em;
       font-size: 75%;
@@ -247,6 +248,10 @@
 
     .preprint_badge {
       background-color: var(--yellow);
+    }
+
+    .data_badge {
+      background-color: var(--green);
     }
 
     .border_badge {
@@ -425,6 +430,9 @@
         <footer>
           {% if paper.doi is defined %}
           <a href="{{ paper.doi }}"><span class="journal_badge">doi</span></a>
+          {% endif %}
+          {% if paper.data is defined %}
+          <a href="{{ paper.data }}"><span class="data_badge">data</span></a>
           {% endif %}
           {% if paper.code is defined %}
           <a href="{{ paper.code }}"><span class="code_badge">code</span></a>
