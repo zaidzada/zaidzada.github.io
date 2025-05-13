@@ -299,6 +299,34 @@
       padding-bottom: 1em;
     } */
 
+    .hr-text {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hr-text hr {
+      flex-grow: 1;
+      border: 0;
+      height: 1px;
+      background-color: #ddd;
+      /* Light gray line */
+      margin: 0 10px;
+    }
+
+    .hr-text span {
+      color: #555;
+      font-size: 10pt;
+      /* Darker gray text */
+      padding: 5px 5px;
+      background-color: #f8f8f8;
+      /* Background color to cover the line */
+      border-radius: 5px;
+      /* Optional: Rounded corners for the text background */
+      white-space: nowrap;
+      /* Prevent text wrapping */
+    }
+
     /* ------
        Responsive
        ------*/
@@ -336,8 +364,6 @@
       <ul>
         <li><a href="#bio">Home</a></li>
         <li><a href="#papers">Papers</a></li>
-        <li><a href="#presentations">Presentations</a></li>
-        <li><a href="#teaching">Teaching</a></li>
         <li><a href="#media">Media</a></li>
         <li><a target="_blank" href="cv.html">CV</a></li>
       </ul>
@@ -419,7 +445,12 @@
     <section id="papers">
       <h1>Selected works</h1>
       <p>For a complete list of papers, see my <a href="https://scholar.google.com/citations?user=RC_hwc0AAAAJ">google
-          scholar page.</a></p><br />
+          scholar page</a> or <a target="_blank" href="cv.html">CV</a>.</p><br />
+
+      <div class="hr-text">
+        <hr><span>preprints</span>
+        <hr>
+      </div>
 
       {% for paper in preprints %}
       {% if paper.featured %}
@@ -441,6 +472,11 @@
       </article>
       {% endif %}
       {% endfor %}
+
+      <div class="hr-text">
+        <hr><span>publications</span>
+        <hr>
+      </div>
 
       {% for paper in publications %}
       {% if paper.featured %}
@@ -465,49 +501,7 @@
       </article>
       {% endif %}
       {% endfor %}
-
-    </section>
-
-    <section id="presentations">
-      <h1>Presentations</h1>
-      <ul>
-        {% for talk in presentations %}
-        <li>
-          <time datetime="{{ talk.date }}">{{ talk.date.strftime('%Y') }}</time>
-          {{ talk.title }} at <em>{{ talk.venue }}</em>.
-          {% if talk.url is defined %}
-          <a href="{{ talk.url }}"><span class="border_badge">{{ talk.type }}</span></a>
-          {% else %}
-          <span class="border_badge">{{ talk.type }}</span>
-          {% endif %}
-          <br>
-        </li>
-        {% endfor %}
-      </ul>
-    </section>
-
-    <section id='teaching'>
-      <h1>Teaching</h1>
-      <ul>
-        {% for school in teaching %}
-        <li>
-          <p><strong>{{school.name}}</strong>, {{school.position}}</p>
-          <ul>
-            {% for course in school.courses %}
-            <li>
-              <time>20{{course.term[2:]}}</time>
-              {{course.name}}
-              {% if course.url is defined %}
-              (<a href="{{course.url}}">{{course.codename}}</a>)
-              {% else %}
-              ({{course.codename}})
-              {% endif %}
-            </li>
-            {% endfor %}
-          </ul>
-        </li>
-        {% endfor %}
-      </ul>
+      <p>* equal contribution</p>
     </section>
 
     <section id="media">
@@ -519,28 +513,10 @@
       </ul>
     </section>
 
-    <section id="awards">
-      <h1>Awards</h1>
-      <ul>
-        {% for award in awards %}
-        <li>
-          <time datetime="{{ award.date }}">{{ award.date.strftime('%Y') }}</time>
-          {% if award.url is defined %}
-          <a href="{{ award.url }}">{{ award.title }}</a>
-          {% else %}
-          {{ award.title }}
-          {% endif %}
-          from <em>{{ award.awarder }}</em>.
-          <br>
-        </li>
-        {% endfor %}
-      </ul>
-    </section>
-
   </main>
 
   <footer>
-    <p>&copy; {{ basics.name }} <time datetime="2025-02-22">2025</time></p>
+    <p>&copy; {{ basics.name }} <time datetime="2025-05-13">2025</time></p>
   </footer>
 </body>
 

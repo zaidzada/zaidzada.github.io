@@ -96,6 +96,11 @@
       font-size: xxx-large;
     }
 
+    .venues {
+      list-style-type: "- ";
+      padding-left: 2rem;
+    }
+
     main>header>ul {
       display: inline;
       padding: 0;
@@ -265,9 +270,15 @@
         <p class="footnote">[<u>presenter</u>]</p>
       </header>
       <ul>
-        {% for talk in presentations %}
-        <li>{{talk.authors}} ({{talk.date.strftime('%Y')}}). {{talk.title}}. <i>{{talk.venue}}</i>, {{talk.city}}.
-          <span class="border_badge">[{{ talk.type }}]</span>
+        {% for work in conference_presentations %}
+        <li>{{work.authors}}. {{work.title}}.
+          <ul class="venues">
+            {% for venue in work.venues %}
+            <li><i>{{venue.venue}}</i> ({{venue.date.strftime('%Y')}}). {{venue.city}}, {{venue.country}}.
+              <span class="border_badge">[{{ venue.type }}]</span>
+            </li>
+            {% endfor %}
+          </ul>
         </li>
         {% endfor %}
       </ul>
@@ -275,12 +286,31 @@
 
     <section>
       <header>
-        <h1>(Contributing Author)</h1>
+        <h1>(contributing coauthor)</h1>
       </header>
       <ul>
-        {% for talk in conference_coauthor %}
-        <li>{{talk.authors}} ({{talk.date.strftime('%Y')}}). {{talk.title}}. <i>{{talk.venue}}</i>, {{talk.city}}.
-          <span class="border_badge">[{{ talk.type }}]</span>
+        {% for work in conference_coauthor %}
+        <li>{{work.authors}}. {{work.title}}.
+          <ul class="venues">
+            {% for venue in work.venues %}
+            <li><i>{{venue.venue}}</i> ({{venue.date.strftime('%Y')}}). {{venue.city}}, {{venue.country}}.
+              <span class="border_badge">[{{ venue.type }}]</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <header>
+        <h1>Invited Talks</h1>
+      </header>
+      <ul class="tight">
+        {% for venue in invited_seminar_talks %}
+        <li><i>{{venue.venue}}</i>, {{venue.university}}. {{venue.city}}, {{venue.country}}
+          ({{venue.date.strftime('%Y')}}).
         </li>
         {% endfor %}
       </ul>

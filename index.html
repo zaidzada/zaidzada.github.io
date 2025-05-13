@@ -299,6 +299,34 @@
       padding-bottom: 1em;
     } */
 
+    .hr-text {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hr-text hr {
+      flex-grow: 1;
+      border: 0;
+      height: 1px;
+      background-color: #ddd;
+      /* Light gray line */
+      margin: 0 10px;
+    }
+
+    .hr-text span {
+      color: #555;
+      font-size: 10pt;
+      /* Darker gray text */
+      padding: 5px 5px;
+      background-color: #f8f8f8;
+      /* Background color to cover the line */
+      border-radius: 5px;
+      /* Optional: Rounded corners for the text background */
+      white-space: nowrap;
+      /* Prevent text wrapping */
+    }
+
     /* ------
        Responsive
        ------*/
@@ -336,8 +364,6 @@
       <ul>
         <li><a href="#bio">Home</a></li>
         <li><a href="#papers">Papers</a></li>
-        <li><a href="#presentations">Presentations</a></li>
-        <li><a href="#teaching">Teaching</a></li>
         <li><a href="#media">Media</a></li>
         <li><a target="_blank" href="cv.html">CV</a></li>
       </ul>
@@ -453,8 +479,15 @@ I study language processing in the brain during naturalistic settings. My resear
     <section id="papers">
       <h1>Selected works</h1>
       <p>For a complete list of papers, see my <a href="https://scholar.google.com/citations?user=RC_hwc0AAAAJ">google
-          scholar page.</a></p><br />
+          scholar page</a> or <a target="_blank" href="cv.html">CV</a>.</p><br />
 
+      <div class="hr-text">
+        <hr><span>preprints</span>
+        <hr>
+      </div>
+
+      
+      
       
       
       <article>
@@ -493,7 +526,18 @@ I study language processing in the brain during naturalistic settings. My resear
       
       
       
-      
+      <article>
+        <a href="https://www.biorxiv.org/content/10.1101/2024.06.04.597448v1">Aligning brains into a shared space improves their alignment to large language models</a>
+        <p>Bhattacharjee, A., <strong>Zada, Z.</strong>, Wang, H., Aubrey, B., Doyle, W., Dugan, P., Friedman, D., Devinsky, O., Flinker, A., Ramadge, P. J., Hasson, U., Goldstein, A., &amp; Nastase, S. A. (2024). <br /> bioRxiv.</p>
+        </p>
+        <footer>
+          
+          <a href="https://doi.org/10.1101/2024.06.04.597448"><span class="journal_badge">doi</span></a>
+          
+          
+          
+        </footer>
+      </article>
       
       
       
@@ -501,6 +545,33 @@ I study language processing in the brain during naturalistic settings. My resear
       
       
 
+      <div class="hr-text">
+        <hr><span>publications</span>
+        <hr>
+      </div>
+
+      
+      
+      <article>
+        <a href="https://www.nature.com/articles/s41562-025-02105-9">A unified acoustic-to-speech-to-language embedding space captures the neural basis of natural language processing in everyday conversations</a>
+        <p>Goldstein, A., Wang, H.*, Niekerken, L.*, Schain, M.*, <strong>Zada, Z.*</strong>, Aubrey, B.*, Sheffer, T.*, Nastase, S. A.*, Gazula, H., Singh, A., Rao, A., Choe, G., Kim, C., Doyle, W., Friedman, D., Devore, S., Dugan, P., Hassidim, A., Brenner, M., … Hasson, U. (2025). <br /> <i>Nature Human Behavior</i>.</p>
+        </p>
+        <footer>
+          
+          <a href="https://doi.org/10.1038/s41562-025-02105-9"><span class="journal_badge">doi</span></a>
+          
+          
+          <a href="https://www.biorxiv.org/content/10.1101/2023.06.26.546557v1"><span class="preprint_badge">preprint</span></a>
+          
+          
+          <a href="https://github.com/hassonlab/247-main/wiki/Reproducing-24-7-whisper-paper-results"><span class="code_badge">code</span></a>
+          
+          
+          <a href="https://research.google/blog/deciphering-language-processing-in-the-human-brain-through-llm-representations/" alt="Google Research"><span class="border_badge">media</span></a>
+          
+        </footer>
+      </article>
+      
       
       
       
@@ -550,148 +621,7 @@ I study language processing in the brain during naturalistic settings. My resear
       
       
       
-
-    </section>
-
-    <section id="presentations">
-      <h1>Presentations</h1>
-      <ul>
-        
-        <li>
-          <time datetime="2025-02-06">2025</time>
-          A shared linguistic embedding space for communication between brains (and machines) at <em>Princeton Neuroscience Institute In-House Seminar</em>.
-          
-          <span class="border_badge">talk</span>
-          
-          <br>
-        </li>
-        
-        <li>
-          <time datetime="2024-06-25">2024</time>
-          Mapping individual and shared cortical language representations during real-time natural dialogues at <em>Organization for Human Brain Mapping</em>.
-          
-          <a href="https://www.youtube.com/watch?v=YaFdaXeCLdo"><span class="border_badge">talk</span></a>
-          
-          <br>
-        </li>
-        
-        <li>
-          <time datetime="2023-11-14">2023</time>
-          Mapping cortical language representation during real-time natural dialogues at <em>Society for Neuroscience</em>.
-          
-          <span class="border_badge">poster</span>
-          
-          <br>
-        </li>
-        
-        <li>
-          <time datetime="2023-10-27">2023</time>
-          Speaker-listener neural coupling in a shared linguistic embedding space during natural conversations at <em>Society for the Neurobiology of Language</em>.
-          
-          <a href="https://youtu.be/-t08ylooUcE"><span class="border_badge">talk</span></a>
-          
-          <br>
-        </li>
-        
-        <li>
-          <time datetime="2023-07-25">2023</time>
-          Speaker-listener neural alignment in linguistic embedding space during spontaneous conversations at <em>Organization for Human Brain Mapping</em>.
-          
-          <span class="border_badge">poster</span>
-          
-          <br>
-        </li>
-        
-        <li>
-          <time datetime="2022-05-08">2022</time>
-          Speaker-listener linguistic alignment in natural conversations at <em>Princeton Neuroscience Institute Annual Meeting</em>.
-          
-          <span class="border_badge">talk</span>
-          
-          <br>
-        </li>
-        
-        <li>
-          <time datetime="2022-11-14">2022</time>
-          Language models mediate speaker-to-listener coupling in natural conversations at <em>Society for Neuroscience</em>.
-          
-          <span class="border_badge">poster</span>
-          
-          <br>
-        </li>
-        
-        <li>
-          <time datetime="2022-08-25">2022</time>
-          Brain-to-Brain Linguistic Coupling in Natural Conversations at <em>Conference on Cognitive Computational Neuroscience</em>.
-          
-          <a href="https://2022.ccneuro.org/view_paper083a.html?PaperNum=1242"><span class="border_badge">poster</span></a>
-          
-          <br>
-        </li>
-        
-        <li>
-          <time datetime="2022-05-02">2022</time>
-          Linguistic brain-to-brain coupling in natrualistic conversation at <em>Princeton Neuroscience Institute annual meeting</em>.
-          
-          <a href="https://drive.google.com/file/d/1xSzUrHEJzOu4ECSoZGvUHm4Vb-hxvyp1/view"><span class="border_badge">poster</span></a>
-          
-          <br>
-        </li>
-        
-      </ul>
-    </section>
-
-    <section id='teaching'>
-      <h1>Teaching</h1>
-      <ul>
-        
-        <li>
-          <p><strong>Princeton University</strong>, Preceptor</p>
-          <ul>
-            
-            <li>
-              <time>2025</time>
-              Cognitive Psychology
-              
-              (<a href="https://registrar.princeton.edu/course-offerings/course-details?term=1254&courseid=005591">PSY 255</a>)
-              
-            </li>
-            
-            <li>
-              <time>2023</time>
-              The Life Cycle of Behaviors
-              
-              (<a href="https://registrar.princeton.edu/course-offerings/course-details?term=1244&courseid=012314">PSY 260</a>)
-              
-            </li>
-            
-            <li>
-              <time>2022</time>
-              Mathematical Tools for Neuroscience
-              
-              (<a href="https://registrar.princeton.edu/course-offerings/course-details?term=1242&courseid=013553">NEU 314</a>)
-              
-            </li>
-            
-          </ul>
-        </li>
-        
-        <li>
-          <p><strong>James Madison University</strong>, Teaching Assistant</p>
-          <ul>
-            
-            <li>
-              <time>2010</time>
-              Advanced Programming
-              
-              (<a href="https://users.cs.jmu.edu/harrisnl/Web/Courses/CS239/">CS 239</a>)
-              
-            </li>
-            
-          </ul>
-        </li>
-        
-      </ul>
+      <p>* equal contribution</p>
     </section>
 
     <section id="media">
@@ -705,49 +635,6 @@ I study language processing in the brain during naturalistic settings. My resear
         <li><a href="https://www.eurekalert.org/news-releases/1052628">Cell Press</a></li>
         
         <li><a href="https://www.jmu.edu/cise/cs/alumni/alumni-spotlight/zaid-spotlight.shtml">JMU Alumni Newsletter Spotlight</a></li>
-        
-      </ul>
-    </section>
-
-    <section id="awards">
-      <h1>Awards</h1>
-      <ul>
-        
-        <li>
-          <time datetime="2023-10-24">2023</time>
-          
-          <a href="https://www.neurolang.org/2023/award-winners/">Graduate Student Merit Award</a>
-          
-          from <em>Society for the Neurobiology of Language</em>.
-          <br>
-        </li>
-        
-        <li>
-          <time datetime="2020-02-27">2020</time>
-          
-          <a href="https://gradschool.princeton.edu/financial-support/fellowships/princeton-fellowships/centennial-fellowship-natural-sciences-and">Centennial Fellowship</a>
-          
-          from <em>Princeton University Graduate School</em>.
-          <br>
-        </li>
-        
-        <li>
-          <time datetime="2012-01-01">2012</time>
-          
-          C.S. Exceptional Graduate Award
-          
-          from <em>James Madison University</em>.
-          <br>
-        </li>
-        
-        <li>
-          <time datetime="2012-01-01">2012</time>
-          
-          C.S. Dennis Ritche Award
-          
-          from <em>James Madison University</em>.
-          <br>
-        </li>
         
       </ul>
     </section>
