@@ -494,6 +494,9 @@
           {% if paper.code is defined %}
           <a href="{{ paper.code }}"><span class="code_badge">code</span></a>
           {% endif %}
+          {% if paper.data is defined %}
+          <a href="{{ paper.data }}"><span class="data_badge">data</span></a>
+          {% endif %}
           {% if paper.media is defined %}
           <a href="{{ paper.media.url }}" alt="{{ paper.media.name }}"><span class="border_badge">media</span></a>
           {% endif %}
