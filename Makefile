@@ -1,11 +1,11 @@
 all: index cv
 
 install:
-	pip install jinja-cli
+	brew install jinja2-cli
 
 
 index:
-	jinja -d data.yaml index.html.jinja > index.html
+	jinja2 index.html.jinja -o index.html data.yaml
 
 cv:
-	jinja -d data.yaml cv.html.jinja > cv.html
+	jinja2 cv.html.jinja -o cv.html data.yaml
