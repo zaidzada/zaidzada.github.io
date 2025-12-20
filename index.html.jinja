@@ -468,6 +468,9 @@
           {% if paper.code is defined %}
           <a href="{{ paper.code }}"><span class="code_badge">code</span></a>
           {% endif %}
+          {% if paper.pdf is defined %}
+          <a href="{{ paper.pdf }}" target="_blank"><span class="border_badge">pdf</span></a>
+          {% endif %}
         </footer>
       </article>
       {% endif %}
@@ -497,8 +500,8 @@
           {% if paper.code is defined %}
           <a href="{{ paper.code }}"><span class="code_badge">code</span></a>
           {% endif %}
-          {% if paper.media is defined %}
-          <a href="{{ paper.media.url }}" alt="{{ paper.media.name }}"><span class="border_badge">media</span></a>
+          {% if paper.pdf is defined %}
+          <a href="{{ paper.pdf }}" target="_blank"><span class="border_badge">pdf</span></a>
           {% endif %}
         </footer>
       </article>
@@ -519,7 +522,7 @@
   </main>
 
   <footer>
-    <p>&copy; {{ basics.name }} <time datetime="2025-11-17">2025</time></p>
+    <p>&copy; {{ basics.name }} <time datetime="2025-12-20">2025</time></p>
   </footer>
 </body>
 
