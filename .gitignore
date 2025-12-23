@@ -2,6 +2,8 @@
 !Makefile
 !index.html
 !index.html.jinja
+!papers.html
+!papers.html.jinja
 !cv.html
 !cv.html.jinja
 !.gitignore
