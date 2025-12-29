@@ -1,10 +1,8 @@
 *
 !Makefile
-!index.html
-!index.html.jinja
-!papers.html
-!papers.html.jinja
-!cv.html
-!cv.html.jinja
+!*.html
+!*.jinja
+!style.css
+!icons.svg
 !.gitignore
 !CNAME

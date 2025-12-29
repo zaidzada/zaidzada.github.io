@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{{ basics.name }}'s homepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ basics.image }}">
+  <style type="text/css">{% include 'style.css' %}</style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="papers.html">Papers</a></li>
+        <li><a target="_blank" href="cv.html">CV</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>{%block content %}{% endblock %}</main>
+
+  <footer>
+    <p>&copy; {{ basics.name }} <time datetime="2025-12-20">2025</time></p>
+  </footer>
+</body>
+
+</html>

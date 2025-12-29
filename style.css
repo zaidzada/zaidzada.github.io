@@ -1,0 +1,347 @@
+/* Color scheme based on https://github.com/sonph/onehalf */
+@media (prefers-color-scheme: light) {
+    :root {
+        --accent: #e77500;
+
+        /* onehalf light colors */
+        --black: #383a42;
+        --red: #e45649;
+        --green: #50a14f;
+        --yellow: #c18401;
+        --blue: #0184bc;
+        --magenta: #a626a4;
+        --cyan: #0997b3;
+        --white: #fafafa;
+        --foreground: #383a42;
+        --background: #fafafa;
+        /* from onehalf-sublime */
+        --gray: #a0a1a7;
+        --gray2: #d4d4d4;
+        --selection: #bfceff;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --accent: #f58025;
+
+        /* onehalf dark colors */
+        --black: #282c34;
+        --red: #e06c75;
+        --green: #98c379;
+        --yellow: #e5c07b;
+        --blue: #61afef;
+        --magenta: #c678dd;
+        --cyan: #56b6c2;
+        --white: #dcdfe4;
+        --foreground: #dcdfe4;
+        --background: #282c34;
+
+        --gray: #5c6370;
+        --gray2: #919baa;
+        --selection: #474e5d;
+    }
+
+    nav {
+        border-bottom: 1px solid var(--accent);
+    }
+
+}
+
+body {
+    font-family: sans-serif;
+    font-size: medium;
+    color: var(--foreground);
+    background-color: var(--background);
+    margin: 0 auto;
+    max-width: 36em;
+    word-wrap: break-word;
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
+}
+
+main h1 {
+    font-size: 1.5em;
+    border-left: 5px solid var(--accent);
+    padding-left: 10px;
+}
+
+#bio h1 {
+    padding-right: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+main h2 {
+    font-size: 1em;
+    font-style: italic;
+}
+
+main a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+main a:hover {
+    text-decoration: underline;
+}
+
+main a span:hover {
+    text-decoration: underline;
+}
+
+main time {
+    font-weight: bold;
+}
+
+body>footer {
+    padding: 1em 0;
+    color: #ababab;
+    text-align: center;
+}
+
+body>footer p {
+    margin: 0;
+    padding: 0;
+    font-size: 0.8em;
+}
+
+/*
+    Navigation
+*/
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    max-height: 46px;
+    overflow: hidden;
+    list-style-type: none;
+    color: var(--white);
+    background-color: var(--black);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+nav ul li a {
+    display: block;
+    color: var(--white);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover:not(.active) {
+    background-color: var(--accent);
+    text-decoration: none;
+}
+
+/* nav ul li a.active {
+    background-color: #4CAF50;
+} */
+
+
+/*
+    Bio
+*/
+
+#bio ul {
+    float: left;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5em;
+}
+
+#bio ul li {
+    text-align: center;
+}
+
+/* #bio ul li:first-child {
+    text-align: left;
+} */
+
+#bio p {
+    float: left;
+    margin-top: 0px;
+    margin-left: 15px;
+    width: calc(100% - 176px - 15px);
+}
+
+#bio:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+#bio footer a {
+    color: var(--foreground);
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+    vertical-align: middle;
+}
+
+#bio footer a:hover {
+    color: var(--accent);
+}
+
+#bio footer {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+/* ------
+    PAPERS
+    ------*/
+
+article {
+    padding-bottom: 1.5em;
+}
+
+article>a {
+    display: block;
+}
+
+article p {
+    display: inline;
+    font-size: 0.9em;
+}
+
+.journal_badge,
+.conference_badge,
+.preprint_badge,
+.border_badge,
+.code_badge,
+.data_badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    color: var(--background);
+    background-color: var(--gray);
+}
+
+.journal_badge {
+    background-color: var(--foreground);
+}
+
+.conference_badge {
+    background-color: var(--red);
+}
+
+.preprint_badge {
+    background-color: var(--yellow);
+}
+
+.data_badge {
+    background-color: var(--green);
+}
+
+.border_badge {
+    color: var(--foreground);
+    background-color: var(--background);
+    border: 1px solid var(--foreground);
+}
+
+#presentations ul,
+#awards ul,
+#teaching ul {
+    padding-left: 0%;
+    list-style-type: none;
+}
+
+#presentations ul li,
+#awards ul li,
+#teaching ul li {
+    padding-bottom: .75em;
+}
+
+#presentations ul li {
+    margin: 10px 0;
+}
+
+#presentations ul li a span {
+    text-decoration: underline;
+}
+
+/* ------
+    TEACHING
+    ------*/
+
+#teaching ul>li>ul {
+    padding-left: 1em;
+}
+
+#teaching>ul>li>p {
+    margin-top: 0;
+}
+
+/* 
+#teaching ul>li {
+    list-style-type: none;
+    padding-bottom: 1em;
+} */
+
+.hr-text {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.hr-text hr {
+    flex-grow: 1;
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    /* Light gray line */
+    margin: 0 10px;
+}
+
+.hr-text span {
+    color: #555;
+    font-size: 10pt;
+    /* Darker gray text */
+    padding: 5px 5px;
+    background-color: #f8f8f8;
+    /* Background color to cover the line */
+    border-radius: 5px;
+    /* Optional: Rounded corners for the text background */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+}
+
+/* ------
+    Responsive
+    ------*/
+@media screen and (max-width: 600px) {
+
+    main {
+        margin: 0 1em;
+    }
+
+    nav>ul>li {
+        flex: 1;
+    }
+
+    #bio ul {
+        width: 100%;
+    }
+
+    #bio h1 {
+        border: none;
+        border-bottom: 2px solid var(--accent);
+    }
+
+    #bio p {
+        width: 100%;
+        margin: 1em 0;
+    }
+}
