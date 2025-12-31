@@ -1,0 +1,85 @@
+{% extends "base.html.jinja" %}
+{% block head %}
+<style type="text/css">
+  #talks {
+    ul {
+      padding: 0.5em 0 0 1em;
+      margin: 0;
+      list-style-type: "⊢";
+
+      li {
+        padding-bottom: 0.25em;
+
+        a>span {
+          text-decoration: underline;
+        }
+      }
+
+    }
+  }
+
+  .listlike {
+    padding-bottom: 1.5em;
+
+    ul {
+      padding-left: 1em;
+      margin: 0;
+
+      li {
+        padding-bottom: 0.25em;
+      }
+    }
+  }
+</style>
+{% endblock %}
+{% block content %}
+
+<section id="talks">
+  <header>
+    <h1>Conference presentations</h1>
+  </header>
+
+  {% for work in conference_presentations %}
+  <article>
+    <a href="{{ work.doi }}">{{ work.title }}</a>
+    <p>{{ work.authors }}</p>
+    <ul>
+      {% for venue in work.venues %}
+      <li><i>{{venue.venue}}</i> ({{venue.date.strftime('%Y')}})
+
+        {% if venue.url is defined %} <a href="{{ venue.url }}"> {% endif %}
+          <span class="{{ 'data_badge' if venue.type.startswith('talk') else 'border_badge' }}">{{ venue.type }}</span>
+          {% if venue.url is defined %} </a> {% endif %}
+
+        {% if venue.doi is defined %}
+        <a href="{{ venue.doi }}"><span class="journal_badge">doi</span></a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </article>
+  {% endfor %}
+
+</section>
+
+<section class="listlike">
+  <header>
+    <h1>Invited talks</h1>
+  </header>
+  <ul>
+    {% for venue in invited_seminar_talks %}
+    <li><i>{{venue.venue}}</i>, {{venue.university}} ({{venue.date.strftime('%Y')}}).</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="listlike">
+  <h1>Media</h1>
+  <ul>
+    {% for article in media %}
+    <li><a href="{{ article.url }}">{{ article.name }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
+
+{% endblock %}
