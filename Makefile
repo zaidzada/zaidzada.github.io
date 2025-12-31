@@ -1,13 +1,19 @@
-all: index papers cv
+# install: brew install jinja2-cli
 
-install:
-	brew install jinja2-cli
+SRCS := $(wildcard *.html.jinja)
+OBJS := $(SRCS:.jinja=)
 
-index:
-	jinja2 index.html.jinja -o index.html data.yaml
+all: $(OBJS) base.html
 
-papers:
-	jinja2 papers.html.jinja -o papers.html data.yaml
+base.html:
+	@rm -f base.html
 
-cv:
-	jinja2 cv.html.jinja -o cv.html data.yaml
+%.html: %.html.jinja
+	jinja2 $@.jinja -o $@ data.yaml
+
+debug:
+	@echo $(SRCS)
+	@echo $(OBJS)
+
+clean:
+	rm *.html
