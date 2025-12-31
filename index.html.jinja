@@ -45,7 +45,6 @@
   <article>
     <a href="{{ paper.url }}">{{ paper.title }}</a>
     <p>{{ paper.authors }} ({{paper.date.strftime('%Y')}}). <br /> {{ paper.publisher }}.</p>
-    </p>
     <footer>
       {% if paper.doi is defined %}
       <a href="{{ paper.doi }}"><span class="journal_badge">doi</span></a>
@@ -74,7 +73,6 @@
   <article>
     <a href="{{ paper.url }}">{{ paper.title }}</a>
     <p>{{ paper.authors }} ({{paper.date.strftime('%Y')}}). <br /> {{ paper.publisher }}.</p>
-    </p>
     <footer>
       {% if paper.doi is defined %}
       <a href="{{ paper.doi }}"><span class="journal_badge">doi</span></a>
@@ -96,14 +94,5 @@
   {% endif %}
   {% endfor %}
   <p>* equal contribution</p>
-</section>
-
-<section id="media">
-  <h1>Media</h1>
-  <ul>
-    {% for article in media %}
-    <li><a href="{{ article.url }}">{{ article.name }}</a></li>
-    {% endfor %}
-  </ul>
 </section>
 {% endblock %}
