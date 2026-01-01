@@ -245,6 +245,7 @@ article p {
     background-color: var(--green);
 }
 
+
 .border_badge {
     color: var(--foreground);
     background-color: var(--background);
@@ -343,5 +344,11 @@ article p {
     #bio p {
         width: 100%;
         margin: 1em 0;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .code_badge {
+        color: var(--foreground);
     }
 }
