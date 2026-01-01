@@ -306,11 +306,11 @@ article p {
 }
 
 .hr-text span {
-    color: #555;
+    color: var(--foreground);
     font-size: 10pt;
     /* Darker gray text */
     padding: 5px 5px;
-    background-color: #f8f8f8;
+    background-color: var(--background);
     /* Background color to cover the line */
     border-radius: 5px;
     /* Optional: Rounded corners for the text background */
