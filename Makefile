@@ -3,12 +3,9 @@
 SRCS := $(wildcard *.html.jinja)
 OBJS := $(SRCS:.jinja=)
 
-all: $(OBJS) base.html
+all: $(OBJS) base.jinja
 
-base.html:
-	@rm -f base.html
-
-%.html: %.html.jinja
+%.html: %.html.jinja  style.css
 	jinja2 $@.jinja -o $@ data.yaml
 
 debug:
