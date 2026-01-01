@@ -26,7 +26,7 @@
   <main>{%block content %}{% endblock %}</main>
 
   <footer>
-    <p>&copy; {{ basics.name }} <time datetime="2025-12-20">2025</time></p>
+    <p>&copy; {{ basics.name }} <time datetime="{{ today }}">{{ today[:4] }}</time></p>
   </footer>
 </body>
 
