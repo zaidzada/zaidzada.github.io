@@ -41,7 +41,7 @@
   </div>
 
   {% for paper in preprints %}
-  {% if paper.featured %}
+  {% if paper.featured is defined and paper.featured %}
   <article>
     <a href="{{ paper.url }}">{{ paper.title }}</a>
     <p>{{ paper.authors }} ({{paper.date.strftime('%Y')}}). <br /> {{ paper.publisher }}.</p>
@@ -69,7 +69,7 @@
   </div>
 
   {% for paper in publications %}
-  {% if paper.featured %}
+  {% if paper.featured is defined and paper.featured %}
   <article>
     <a href="{{ paper.url }}">{{ paper.title }}</a>
     <p>{{ paper.authors }} ({{paper.date.strftime('%Y')}}). <br /> {{ paper.publisher }}.</p>

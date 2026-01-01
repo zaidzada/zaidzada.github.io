@@ -230,12 +230,12 @@
       </header>
       <ul>
         {% for paper in preprints %}
-        {% if paper.featured %}
+        {% if paper.featured is defined and paper.featured %}
         <li>{{paper.authors}} ({{paper.date.strftime('%Y')}}). {{paper.title}}. <i>{{paper.publisher}}</i>.</li>
         {% endif %}
         {% endfor %}
         {% for paper in publications %}
-        {% if paper.featured %}
+        {% if paper.featured is defined and paper.featured %}
         <li>{{paper.authors}} ({{paper.date.strftime('%Y')}}). {{paper.title}}. {{paper.publisher}}.</li>
         {% endif %}
         {% endfor %}
