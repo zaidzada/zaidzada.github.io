@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <id>https://zaidzada.com/</id>
+    <title>Zaid Zada's feed</title>
+    <updated>2026-01-03T09:03:06-05:00</updated>
+    <author>
+        <name>Zaid Zada</name>
+    </author>
+    <link rel="alternate" href="https://zaidzada.com/" />
+    <link rel="self" href="https://zaidzada.com/atom.xml" />
+
+    
+    <entry>
+        <id>https://doi.org/10.31234/osf.io/5ygkj_v1</id>
+        <title>fMRI hyperscanning reveals widespread neural coupling during natural conversations</title>
+        <updated>2025-11-14T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.31234/osf.io/5ygkj_v1" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                Mwilambwe-Tshilobo, L., Tsoi, L., Speer, S., <strong>Zada, Z.,</strong> Burns, S. M., Falk, E. B., &amp; Tamir, D. (2025). fMRI hyperscanning reveals widespread neural coupling during natural conversations. <i>PsyArXiv</i>.
+            </div>
+        </summary>
+    </entry>
+    
+    <entry>
+        <id>https://doi.org/10.48550/arXiv.2506.20489</id>
+        <title>Brains and language models converge on a shared conceptual space across different languages</title>
+        <updated>2025-06-25T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.48550/arXiv.2506.20489" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <strong>Zada, Z.</strong>, Nastase, S., Li, J., &amp; Hasson, U. (2025). Brains and language models converge on a shared conceptual space across different languages. <i>arXiv</i>.
+            </div>
+        </summary>
+    </entry>
+    
+    <entry>
+        <id>https://doi.org/10.1101/2025.06.02.657491</id>
+        <title>Cortical language areas are coupled via a soft hierarchy of model-based linguistic features</title>
+        <updated>2025-06-03T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.1101/2025.06.02.657491" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                Samara, A., <strong>Zada, Z.</strong>, Vanderwal, T., Hasson, U., &amp; Nastase, S. (2025). Cortical language areas are coupled via a soft hierarchy of model-based linguistic features. <i>bioRxiv</i>.
+            </div>
+        </summary>
+    </entry>
+    
+    <entry>
+        <id>https://doi.org/10.1101/2025.04.05.647323</id>
+        <title>Context modulates brain state dynamics and behavioral responses during narrative comprehension</title>
+        <updated>2025-02-16T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.1101/2025.04.05.647323" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                Chen, Y., <strong>Zada, Z.,</strong> Nastase, S., Ashby, F. G., &amp; Ghosh, S. S. (2025). Context modulates brain state dynamics and behavioral responses during narrative comprehension. <i>bioRxiv</i>.
+            </div>
+        </summary>
+    </entry>
+    
+    <entry>
+        <id>https://doi.org/10.1101/2024.08.27.609946</id>
+        <title>Information-making processes in the speaker's brain drive human conversations forward</title>
+        <updated>2024-08-28T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.1101/2024.08.27.609946" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                Goldstein, A., Wang, H., Sheffer, T., Schain, M., <strong>Zada, Z.</strong>, Niekerken, L., Aubrey, B., Nastase, S. A., Gazula, H., Casto, C., Doyle, W. K., Friedman, D., Devore, S., Dugan, P., Hassidim, A., Brenner, M., Matias, Y., Devinsky, O., Flinker, A., &amp; Hasson, U. (2024). Information-making processes in the speaker's brain drive human conversations forward. <i>bioRxiv</i>.
+            </div>
+        </summary>
+    </entry>
+    
+    <entry>
+        <id>https://doi.org/10.1016/j.neuron.2025.11.004</id>
+        <title>Linguistic coupling between neural systems for speech production and comprehension during real-time dyadic conversations</title>
+        <updated>2025-12-17T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.1016/j.neuron.2025.11.004" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <strong>Zada, Z.,</strong> Nastase, S. A., Speer, S., Mwilambwe-Tshilobo, L., Tsoi, L., Burns, S. M., Falk, E., Hasson, U., &amp; Tamir, D. I. (2025). Linguistic coupling between neural systems for speech production and comprehension during real-time dyadic conversations. <i><i>Neuron</i></i>.
+            </div>
+        </summary>
+    </entry>
+    
+    <entry>
+        <id>https://doi.org/10.1038/s41467-025-65518-0</id>
+        <title>Temporal structure of natural language processing in the human brain corresponds to layered hierarchy of large language models</title>
+        <updated>2025-11-26T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.1038/s41467-025-65518-0" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                Goldstein, A.*, Ham, E.*, Schain, M., Nastase, S. A., Aubrey, B., <strong>Zada, Z.</strong>, Grinstein-Dabush, A., Gazula, H., Feder, A., Doyle, W., Devore, S., Dugan, P., Friedman, D., Brenner, M., Hassidim, A., Matias, Y., Devinsky, O., Siegelman, N., Flinker, A., … Hasson, U. (2025). Temporal structure of natural language processing in the human brain corresponds to layered hierarchy of large language models. <i><i>Nature Communications</i>, <i>16</i>(1), 10529</i>.
+            </div>
+        </summary>
+    </entry>
+    
+    <entry>
+        <id>https://doi.org/10.1038/s43588-025-00900-y</id>
+        <title>Aligning brains into a shared space improves their alignment with large language models</title>
+        <updated>2025-11-18T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.1038/s43588-025-00900-y" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                Bhattacharjee, A., <strong>Zada, Z.</strong>, Wang, H., Aubrey, B., Doyle, W., Dugan, P., Friedman, D., Devinsky, O., Flinker, A., Ramadge, P. J., Hasson, U., Goldstein, A., &amp; Nastase, S. A. (2025). Aligning brains into a shared space improves their alignment with large language models. <i><i>Nat Comput Sci</i></i>.
+            </div>
+        </summary>
+    </entry>
+    
+    <entry>
+        <id>https://doi.org/10.1038/s41539-025-00337-y</id>
+        <title>Reading comprehension in L1 and L2 readers: Neurocomputational mechanisms revealed through large language models</title>
+        <updated>2025-07-10T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.1038/s41539-025-00337-y" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                Gu, C., Nastase, S. A., <strong>Zada, Z.</strong>, &amp; Li, P. (2025). Reading comprehension in L1 and L2 readers: Neurocomputational mechanisms revealed through large language models. <i><i>Npj Science of Learning</i>, <i>10</i>(1), 46</i>.
+            </div>
+        </summary>
+    </entry>
+    
+    <entry>
+        <id>https://doi.org/10.1038/s41597-025-05462-2</id>
+        <title>The “Podcast” ECoG dataset for modeling neural activity during natural narrative comprehension</title>
+        <updated>2025-07-03T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.1038/s41597-025-05462-2" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <strong>Zada, Z.,</strong> Nastase, S. A., Aubrey, B., Jalon, I., Michelmann, S., Wang, H., Hasenfratz, L., Doyle, W., Friedman, D., Dugan, P., Melloni, L., Devore, S., Flinker, A., Devinsky, O., Goldstein, A., &amp; Hasson, U. (2025). The “Podcast” ECoG dataset for modeling neural activity during natural narrative comprehension. <i><i>Sci Data</i>, <i>12</i>(1), 1135</i>.
+            </div>
+        </summary>
+    </entry>
+    
+    <entry>
+        <id>https://doi.org/10.1038/s41562-025-02105-9</id>
+        <title>A unified acoustic-to-speech-to-language embedding space captures the neural basis of natural language processing in everyday conversations</title>
+        <updated>2025-03-07T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.1038/s41562-025-02105-9" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                Goldstein, A., Wang, H.*, Niekerken, L.*, Schain, M.*, <strong>Zada, Z.*</strong>, Aubrey, B.*, Sheffer, T.*, Nastase, S. A.*, Gazula, H., Singh, A., Rao, A., Choe, G., Kim, C., Doyle, W., Friedman, D., Devore, S., Dugan, P., Hassidim, A., Brenner, M., … Hasson, U. (2025). A unified acoustic-to-speech-to-language embedding space captures the neural basis of natural language processing in everyday conversations. <i><i>Nature Human Behavior</i>, <i>9</i>(5), 1041-1055</i>.
+            </div>
+        </summary>
+    </entry>
+    
+    <entry>
+        <id>https://doi.org/10.1523/JNEUROSCI.2233-24.2025</id>
+        <title>In search of a neural mechanism for domain-general value comparison in decision making</title>
+        <updated>2025-02-12T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.1523/JNEUROSCI.2233-24.2025" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                Samara, A.*, &amp; <strong>Zada, Z.*</strong> (2025). In search of a neural mechanism for domain-general value comparison in decision making. <i><i>The Journal of Neuroscience</i>, <i>45</i>(7), e2233242025</i>.
+            </div>
+        </summary>
+    </entry>
+    
+    <entry>
+        <id>https://doi.org/10.1016/j.neuron.2024.06.025</id>
+        <title>A shared model-based linguistic space for transmitting our thoughts from brain to brain in natural conversations</title>
+        <updated>2024-08-02T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.1016/j.neuron.2024.06.025" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <strong>Zada, Z.</strong>, Goldstein, A., Michelmann, S., Simony, E., Price, A., Hasenfratz, L., Barham, E., Zadbood, A., Doyle, W., Friedman, D., Dugan, P., Melloni, L., Devore, S., Flinker, A., Devinsky, O., Nastase, S. A.*, &amp; Hasson, U.* (2024). A shared model-based linguistic space for transmitting our thoughts from brain to brain in natural conversations. <i><i>Neuron</i>, <i>112</i>(18), 3211-3222.e5</i>.
+            </div>
+        </summary>
+    </entry>
+    
+    <entry>
+        <id>https://doi.org/10.1038/s41467-024-46631-y</id>
+        <title>Alignment of brain embeddings and artificial contextual embeddings in natural language points to common geometric patterns</title>
+        <updated>2024-03-30T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.1038/s41467-024-46631-y" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                Goldstein, A., Grinstein-Dabush, A., Schain, M., Wang, H., Hong, Z., Aubrey, B., Schain, M., Nastase, S. A., <strong>Zada, Z.</strong>, Ham, E., Feder, A., Gazula, H., Buchnik, E., Doyle, W., Devore, S., Dugan, P., Reichart, R., Friedman, D., Brenner, M., … Hasson, U. (2024). Alignment of brain embeddings and artificial contextual embeddings in natural language points to common geometric patterns. <i><i>Nature Communications</i>, <i>15</i>(1), 2768</i>.
+            </div>
+        </summary>
+    </entry>
+    
+    <entry>
+        <id>https://doi.org/10.1038/s41593-022-01026-4</id>
+        <title>Shared computational principles for language processing in humans and deep language models</title>
+        <updated>2022-03-07T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.1038/s41593-022-01026-4" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                Goldstein, A., <strong>Zada, Z.</strong>, Buchnik, E., Schain, M., Price, A., Aubrey, B., Nastase, S. A., Feder, A., Emanuel, D., Cohen, A., Jansen, A., Gazula, H., Choe, G., Rao, A., Kim, C., Casto, C., Fanda, L., Doyle, W., Friedman, D., … Hasson, U. (2022). Shared computational principles for language processing in humans and deep language models. <i><i>Nature Neuroscience</i>, <i>25</i>(3), 369-380</i>.
+            </div>
+        </summary>
+    </entry>
+    
+    <entry>
+        <id>https://doi.org/10.7554/eLife.101204.1</id>
+        <title>Scale matters: Large language models with billions (rather than millions) of parameters better match neural representations of natural language</title>
+        <updated>2024-10-22T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.7554/eLife.101204.1" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                Hong, Z.*, Wang, H.*, <strong>Zada, Z.</strong>, Gazula, H., Turner, D., Aubrey, B., Niekerken, L., Doyle, W., Devore, S., Dugan, P., Friedman, D., Devinsky, O., Flinker, A., Hasson, U., Nastase, S. A., &amp; Goldstein, A. (2024). Scale matters: Large language models with billions (rather than millions) of parameters better match neural representations of natural language. <i><i>eLife</i> 13:RP101204</i>.
+            </div>
+        </summary>
+    </entry>
+    
+
+</feed>

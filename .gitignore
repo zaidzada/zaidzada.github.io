@@ -1,6 +1,7 @@
 *
 !Makefile
 !*.html
+!atom.xml
 !*.jinja
 !style.css
 !icons.svg

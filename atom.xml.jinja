@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <id>https://zaidzada.com/</id>
+    <title>{{ basics.name }}'s feed</title>
+    <updated>{{ today }}</updated>
+    <author>
+        <name>{{ basics.name }}</name>
+    </author>
+    <link rel="alternate" href="https://zaidzada.com/" />
+    <link rel="self" href="https://zaidzada.com/atom.xml" />
+
+    {% for paper in preprints + publications %}
+    <entry>
+        <id>{{ paper.doi }}</id>
+        <title>{{ paper.title }}</title>
+        <updated>{{ paper.date.strftime('%Y-%m-%dT%H:%M:%SZ') }}</updated>
+        <link rel="alternate" href="{{ paper.doi }}" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                {{paper.authors}} ({{paper.date.strftime('%Y')}}). {{paper.title}}. <i>{{paper.publisher}}</i>.
+            </div>
+        </summary>
+    </entry>
+    {% endfor %}
+
+</feed>
