@@ -6,7 +6,10 @@ OBJS := $(SRCS:.jinja=)
 all: $(OBJS)
 
 %.html: %.html.jinja base.jinja style.css data.yaml
-	jinja2 --strict -D today=$$(date +'%Y-%m-%d') -o $@ $@.jinja data.yaml
+	jinja2 --strict -D today=$$(date +'%Y-%m') -o $@ $@.jinja data.yaml
+
+resources.html: resources.html.jinja base.jinja style.css references.json
+	jinja2 --strict -D today=$(date +'%Y-%m') -o $@ $@.jinja references.json
 
 atom.xml: atom.xml.jinja data.yaml
 	jinja2 --strict -D today=$$(date -Iseconds) -o $@ $@.jinja data.yaml
