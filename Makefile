@@ -20,3 +20,4 @@ vars:
 
 clean:
 	rm *.html
+	rm atom.xml
