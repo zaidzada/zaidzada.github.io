@@ -16,7 +16,9 @@
         --background: #fafafa;
         /* from onehalf-sublime */
         --gray: #a0a1a7;
+        /* comment */
         --gray2: #d4d4d4;
+        /* gutter foreground; background is --black */
         --selection: #bfceff;
     }
 }
@@ -38,7 +40,9 @@
         --background: #282c34;
 
         --gray: #5c6370;
+        /* comment */
         --gray2: #919baa;
+        /* gutter foregorund; background is --black */
         --selection: #474e5d;
     }
 
@@ -225,26 +229,32 @@ article p {
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: .25em;
-    color: var(--background);
-    background-color: var(--gray);
 }
 
 .journal_badge {
     background-color: var(--foreground);
+    color: var(--background);
 }
 
 .conference_badge {
     background-color: var(--red);
+    color: #fff;
 }
 
 .preprint_badge {
     background-color: var(--yellow);
+    color: var(--background);
 }
 
 .data_badge {
     background-color: var(--green);
+    color: var(--background);
 }
 
+.code_badge {
+    background-color: var(--gray);
+    color: var(--background);
+}
 
 .border_badge {
     color: var(--foreground);
