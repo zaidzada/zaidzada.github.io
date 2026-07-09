@@ -7,25 +7,31 @@
   <header>
     <h1>{{ basics.name }} <span style="text-align: right">{{ basics.name_alt }}</span></h1>
   </header>
-  <ul>
-    <li>
-      <img src="{{ basics.image }}" alt="profile picture" width="175px">
-    </li>
-    <li>{{ basics.label }}</li>
-    <li><a href="https://psych.princeton.edu">{{ education[0].area }}</a></li>
-    <li><a href="{{ education[0].url }}">{{ education[0].institution }}</a></li>
 
-  </ul>
-  <p>{{ basics.summary }}</p>
-  <footer>
-    {% for profile in basics.profiles %}
-    <a href="{{ profile.url }}">
-      <svg class="icon icon-{{ profile.network }}" width="32" height="32">
-        <use xlink:href="#icon-{{ profile.network }}"></use>
-      </svg>
-    </a>
-    {% endfor %}
-  </footer>
+  <div class="twocol">
+    <div>
+      <ul>
+        <li>
+          <img src="{{ basics.image }}" alt="profile picture" width="175px">
+        </li>
+        <li>{{ basics.label }}</li>
+        <li><a href="{{ basics.affiliation.url }}">{{ basics.affiliation.name }}</a></li>
+
+      </ul>
+    </div>
+    <div>
+      {{ basics.summary }}
+      <footer>
+        {% for profile in basics.profiles %}
+        <a href="{{ profile.url }}">
+          <svg class="icon icon-{{ profile.network }}" width="32" height="32">
+            <use xlink:href="#icon-{{ profile.network }}"></use>
+          </svg>
+        </a>
+        {% endfor %}
+      </footer>
+    </div>
+  </div>
 </section>
 
 <section id="papers">

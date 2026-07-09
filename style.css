@@ -1,7 +1,7 @@
 /* Color scheme based on https://github.com/sonph/onehalf */
 @media (prefers-color-scheme: light) {
     :root {
-        --accent: #e77500;
+        --accent: #FC9313;
 
         /* onehalf light colors */
         --black: #383a42;
@@ -25,7 +25,7 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --accent: #f58025;
+        --accent: #FFC31B;
 
         /* onehalf dark colors */
         --black: #282c34;
@@ -44,10 +44,6 @@
         --gray2: #919baa;
         /* gutter foregorund; background is --black */
         --selection: #474e5d;
-    }
-
-    nav {
-        border-bottom: 1px solid var(--accent);
     }
 
 }
@@ -120,8 +116,8 @@ nav ul {
     max-height: 46px;
     overflow: hidden;
     list-style-type: none;
-    color: var(--white);
-    background-color: var(--black);
+    color: var(--background);
+    background-color: var(--foreground);
     display: flex;
     flex-wrap: wrap;
 }
@@ -129,7 +125,7 @@ nav ul {
 
 nav ul li a {
     display: block;
-    color: var(--white);
+    color: var(--background);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -149,6 +145,16 @@ nav ul li a:hover:not(.active) {
     Bio
 */
 
+#bio {
+    padding-bottom: 1em;
+}
+
+.twocol {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1em;
+}
+
 #bio ul {
     float: left;
     list-style-type: none;
@@ -161,21 +167,8 @@ nav ul li a:hover:not(.active) {
     text-align: center;
 }
 
-/* #bio ul li:first-child {
-    text-align: left;
-} */
-
 #bio p {
-    float: left;
     margin-top: 0px;
-    margin-left: 15px;
-    width: calc(100% - 176px - 15px);
-}
-
-#bio:after {
-    content: '';
-    display: table;
-    clear: both;
 }
 
 #bio footer a {
@@ -354,6 +347,12 @@ article p {
     #bio p {
         width: 100%;
         margin: 1em 0;
+    }
+
+    .twocol {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
     }
 }
 
