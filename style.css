@@ -197,7 +197,6 @@ nav ul li a:hover:not(.active) {
 
 article {
     margin-bottom: 0.75rem;
-    padding: 0 0 0.75rem 0.5rem;
 }
 
 article>a {
@@ -279,7 +278,7 @@ article p {
 
 .highlight {
     position: relative;
-    background-color: rgba(255, 215, 0, 0.3);
+    background-color: rgba(252, 240, 192);
     border-radius: 1rem;
     border: 1px dashed rgb(255, 215, 0);
     padding: 0.75rem 0 0.75rem 0.5rem;
