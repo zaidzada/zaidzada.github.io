@@ -37,7 +37,8 @@
 
 <section id="papers">
   <h1>Selected works</h1>
-  <p>For a complete list see my <a href="papers.html">papers</a>, <a target="_blank" href="cv.html">CV</a>, or <a href="https://scholar.google.com/citations?user=RC_hwc0AAAAJ">google scholar</a>.
+  <p>For a complete list see my <a href="papers.html">papers</a>, <a target="_blank" href="cv.html">CV</a>, or <a
+      href="https://scholar.google.com/citations?user=RC_hwc0AAAAJ">google scholar</a>.
   </p><br />
 
   <div class="hr-text">
@@ -75,7 +76,10 @@
 
   {% for paper in publications %}
   {% if paper.featured is defined and paper.featured %}
-  <article>
+  <article {{ 'class="highlight"' if paper.highlight is defined else '' }}>
+    {% if paper.highlight is defined and paper.highlight %}
+    <span class="highlight-badge" aria-label="New item">new!</span>
+    {% endif %}
     <a href="{{ paper.url }}">{{ paper.title }}</a>
     <p>{{ paper.authors }} ({{paper.date.strftime('%Y')}}). <br /> {{ paper.publisher }}.</p>
     <footer>
@@ -98,6 +102,7 @@
   </article>
   {% endif %}
   {% endfor %}
+
   <p>* equal contribution</p>
 </section>
 {% endblock %}

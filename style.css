@@ -196,7 +196,8 @@ nav ul li a:hover:not(.active) {
     ------*/
 
 article {
-    padding-bottom: 1.5em;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem 0.5rem;
 }
 
 article>a {
@@ -276,6 +277,26 @@ article p {
     text-decoration: underline;
 }
 
+.highlight {
+    position: relative;
+    background-color: rgba(255, 215, 0, 0.3);
+    border-radius: 1rem;
+    border: 1px dashed rgb(255, 215, 0);
+}
+
+.highlight-badge {
+    position: absolute;
+    right: 0.25rem;
+    transform: rotate(45deg);
+    transform-origin: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: rgb(160, 120, 0);
+    pointer-events: none;
+    user-select: none;
+}
+
 /* ------
     TEACHING
     ------*/
@@ -328,18 +349,22 @@ Posted by GrahamTheDev, modified by community. See post 'Timeline' for change hi
 Retrieved 2026-08-07, License - CC BY-SA 4.0
 */
 
-.visually-hidden { 
+.visually-hidden {
     border: 0;
     padding: 0;
     margin: 0;
     position: absolute !important;
-    height: 1px; 
+    height: 1px;
     width: 1px;
     overflow: hidden;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-    clip: rect(1px, 1px, 1px, 1px); /*maybe deprecated but we need to support legacy browsers */
-    clip-path: inset(50%); /*modern browsers, clip-path works inwards from each corner*/
-    white-space: nowrap; /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
+    clip: rect(1px 1px 1px 1px);
+    /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+    clip: rect(1px, 1px, 1px, 1px);
+    /*maybe deprecated but we need to support legacy browsers */
+    clip-path: inset(50%);
+    /*modern browsers, clip-path works inwards from each corner*/
+    white-space: nowrap;
+    /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
 }
 
 /* ------
