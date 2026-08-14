@@ -54,10 +54,16 @@ body {
     color: var(--foreground);
     background-color: var(--background);
     margin: 0 auto;
-    max-width: 36em;
+    max-width: 42em;
     word-wrap: break-word;
     text-rendering: optimizeLegibility;
     font-kerning: normal;
+}
+
+main {
+    padding: 1em 2em;
+    --shadow-color: 25 40% 20%;
+    box-shadow: 0 2px 8px hsl(var(--shadow-color) / 0.12);
 }
 
 main h1 {
@@ -70,6 +76,7 @@ main h1 {
     padding-right: 5px;
     display: flex;
     justify-content: space-between;
+    margin-top: 0;
 }
 
 main h2 {
@@ -152,7 +159,7 @@ nav ul li a:hover:not(.active) {
 .twocol {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 1em;
+    gap: 0.2rem;
 }
 
 #bio ul {
@@ -374,6 +381,8 @@ Retrieved 2026-08-07, License - CC BY-SA 4.0
 
     main {
         margin: 0 1em;
+        padding: 1em 0;
+        box-shadow: none;
     }
 
     nav>ul>li {
