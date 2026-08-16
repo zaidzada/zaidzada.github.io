@@ -3,7 +3,7 @@
 SRCS := $(wildcard *.html.jinja)
 OBJS := $(SRCS:.jinja=)
 
-all: $(OBJS)
+all: $(OBJS) atom.xml
 
 %.html: %.html.jinja base.jinja style.css data.yaml
 	jinja2 --strict -D today=$$(date +'%Y-%m') -o $@ $@.jinja data.yaml

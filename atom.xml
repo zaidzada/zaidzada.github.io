@@ -3,7 +3,7 @@
 
     <id>https://zaidzada.com/</id>
     <title>Zaid Zada's feed</title>
-    <updated>2026-02-19T09:28:50-05:00</updated>
+    <updated>2026-08-16T07:22:28-07:00</updated>
     <author>
         <name>Zaid Zada</name>
     </author>
@@ -55,6 +55,18 @@
         <summary type="xhtml">
             <div xmlns="http://www.w3.org/1999/xhtml">
                 Goldstein, A., Wang, H., Sheffer, T., Schain, M., <strong>Zada, Z.</strong>, Niekerken, L., Aubrey, B., Nastase, S. A., Gazula, H., Casto, C., Doyle, W. K., Friedman, D., Devore, S., Dugan, P., Hassidim, A., Brenner, M., Matias, Y., Devinsky, O., Flinker, A., &amp; Hasson, U. (2024). Information-making processes in the speaker's brain drive human conversations forward. <i>bioRxiv</i>.
+            </div>
+        </summary>
+    </entry>
+    
+    <entry>
+        <id>https://doi.org/10.1016/j.neuron.2026.07.024</id>
+        <title>Unifying the structures of language in a neural population code</title>
+        <updated>2026-08-14T00:00:00Z</updated>
+        <link rel="alternate" href="https://doi.org/10.1016/j.neuron.2026.07.024" />
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                Nastase, S. A., <strong>Zada, Z.</strong>, Goldberg, A., &amp; Hasson, U. (2026). Unifying the structures of language in a neural population code. <i><i>Neuron</i></i>.
             </div>
         </summary>
     </entry>
