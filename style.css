@@ -20,6 +20,12 @@
         --gray2: #d4d4d4;
         /* gutter foreground; background is --black */
         --selection: #bfceff;
+
+        --shadow: 25 40% 20%;
+        --shadow-color: hsl(var(--shadow) / 0.12);
+
+        --highlight_bg: rgb(252, 240, 192);
+        --highlight_border: rgb(255, 215, 0);
     }
 }
 
@@ -44,6 +50,12 @@
         --gray2: #919baa;
         /* gutter foregorund; background is --black */
         --selection: #474e5d;
+
+        --shadow: 25 30% 3%;
+        --shadow-color: hsl(var(--shadow) / 0.5);
+
+        --highlight_bg: rgb(52, 46, 25);
+        --highlight_border: rgb(184, 163, 46);
     }
 
 }
@@ -62,8 +74,7 @@ body {
 
 main {
     padding: 1em 2em;
-    --shadow-color: 25 40% 20%;
-    box-shadow: 0 2px 8px hsl(var(--shadow-color) / 0.12);
+    box-shadow: 0 2px 8px var(--shadow-color);
 }
 
 main h1 {
@@ -285,9 +296,9 @@ article p {
 
 .highlight {
     position: relative;
-    background-color: rgba(252, 240, 192);
+    background-color: var(--highlight_bg);
+    border: 1px dashed var(--highlight_border);
     border-radius: 1rem;
-    border: 1px dashed rgb(255, 215, 0);
     padding: 0.75rem 0 0.75rem 0.5rem;
 }
 
